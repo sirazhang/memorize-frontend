@@ -1,0 +1,1448 @@
+{
+	"words": [
+		{
+			"word": "dismantle",
+			"config": {
+				"prefix": "dis",
+				"root": "",
+				"suffix": "man",
+				"tale": "tle"
+			},
+			"location": {
+				"lat": 5, "lon": 0 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "1"
+		},
+		{
+			"word": "consecutive",
+			"config": {
+				"prefix": "con",
+				"root": "",
+				"suffix": "secut",
+				"tale": "ive"
+			},
+			"location": {
+				"lat": 8, "lon": 3
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "征募，招募",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "prosecute",
+			"config": {
+				"prefix": "pro",
+				"root": "",
+				"suffix": "secut",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 11, "lon": 3 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "控告，起诉",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "persecute",
+			"config": {
+				"prefix": "per",
+				"root": "",
+				"suffix": "secut",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 14, "lon": 3
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "1"
+		},
+		{
+			"word": "conflagrant",
+			"config": {
+				"prefix": "con",
+				"root": "",
+				"suffix": "flagr",
+				"tale": "ant"
+			},
+			"location": {
+				"lat": 8, "lon": 5
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "大火的",
+				"example": ""
+			},
+			"level": "1"
+		},
+		{
+			"word": "infraction",
+			"config": {
+				"prefix": "in",
+				"root": "",
+				"suffix": "fract",
+				"tale": "ion"
+			},
+			"location": {
+				"lat": 9, "lon": 6
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "违反，违背",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "expose",
+			"config": {
+				"prefix": "ex",
+				"root": "",
+				"suffix": "pos",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 2, "lon": 7
+			},
+			"details": {
+			"pronun": "",
+					"english": "",
+					"chinese": "暴露；揭露",
+					"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "apposite",
+			"config": {
+				"prefix": "ap",
+				"root": "",
+				"suffix": "posit",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 3, "lon": 7
+			},
+			"details": {
+				"pronun": "[ˈæpəzɪt]",
+				"english": "adj. very appropriate",
+				"chinese": "合适的",
+				"example": "If Pico’s ideal of a rapprochement between religions, and between religion and philosophy, is relevant to our agonies, it is apposite in a negative way: it invokes an opportunity lost, or at least disappearing from view."
+			},
+			"level": "1"
+		},
+		{
+			"word": "discompose",
+			"config": {
+				"prefix": "dis",
+				"root": "com",
+				"suffix": "pos",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 5, "lon": 7 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "depose", 
+			"config": {
+				"prefix": "de",
+				"root": "",
+				"suffix": "pos",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 6, "lon": 7 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "免职；沉淀",
+				"example": ""
+			},
+			"level": "1"
+		},
+		{
+			"word": "composed",
+			"config": {
+				"prefix": "com",
+				"root": "",
+				"suffix": "pos",
+				"tale": "ed"
+			},
+			"location": {
+				"lat": 8, "lon": 7 
+			},
+			"details": {
+				"pronun": "[kəmˈpəʊzd]",
+				"english": "adj. calm and in control of your emotions",
+				"chinese": "镇定的",
+				"example": "At fifty, with highlighted waves of hair and chunky gold jewelry, she is exceedingly composed and self-assured."
+			},
+			"level": "2"
+		},
+		{
+			"word": "repose",
+			"config": {
+				"prefix": "re",
+				"root": "",
+				"suffix": "pos",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 10, "lon": 7 
+			},			
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "休息；睡眠",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "proposal", 
+			"config": {
+				"prefix": "pro",
+				"root": "",
+				"suffix": "pos",
+				"tale": "al"
+			},
+			"location": {
+				"lat": 11, "lon": 7
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "建议，提议",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "supposition", 
+			"config": {
+				"prefix": "sup",
+				"root": "",
+				"suffix": "posit",
+				"tale": "ion"
+			},
+			"location": {
+				"lat": 17, "lon": 7 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "dispassionate", 
+			"config": {
+				"prefix": "dis",
+				"root": "",
+				"suffix": "pass",
+				"tale": "ionate"
+			},
+			"location": {
+				"lat": 5, "lon": 8
+			},
+			"details": {
+				"pronun": "[dɪs'pæʃənət]",
+				"english": "adj. not influenced or affected by emotions",
+				"chinese": "公正客观的，冷静客观的",
+				"example": "Highly speculative theories of worldwide destruction—even the end of life on Earth—used as a call for a particular kind of political action serve neither the good reputation of science nor dispassionate political thought."
+			},
+			"level": "2"
+		},
+		{
+			"word": "compassion", 
+			"config": {
+				"prefix": "com",
+				"root": "",
+				"suffix": "pass",
+				"tale": "ion"
+			},
+			"location": {
+				"lat": 8, "lon": 8
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "impassioned", 
+			"config": {
+				"prefix": "im",
+				"root": "",
+				"suffix": "pass",
+				"tale": "ioned"
+			},
+			"location": {
+				"lat": 9, "lon": 8
+			},
+			"details": {
+				"pronun": "[ɪmˈpæʃnd]",
+				"english": "adj. showing or feeling very strong emotions",
+				"chinese": "热情的",
+				"example": "Last Wednesday, Secretary of State John Kerry delivered a lengthy and impassioned speech on Israel and Palestine that will go down as a major moment in American Middle East diplomacy."
+			},
+			"level": "2"
+		},
+		{
+			"word": "effusive", 
+			"config": {
+				"prefix": "ef",
+				"root": "",
+				"suffix": "fus",
+				"tale": "ive"
+			},
+			"location": {
+				"lat": 1, "lon": 9
+			},
+			"details": {
+				"pronun": "[ɪˈfju:sɪv]",
+				"english": "adj. expressing a lot of emotion",
+				"chinese": "溢于言表的，感情丰富的",
+				"example": "He remained in good spirits the following day, although he was extremely garrulous, not in his usual effusive way but slightly manic, slightly off—a consequence, the doctors explained, of toxins building up in his bloodstream from temporary loss of kidney function."
+			},
+			"level": "2"
+		},
+		{
+			"word": "confused", 
+			"config": {
+				"prefix": "con",
+				"root": "",
+				"suffix": "fus",
+				"tale": "ed"
+			},
+			"location": {
+				"lat": 8, "lon": 9
+			},
+			"details": {
+				"pronun": "[kənˈfju:zd]",
+				"english": "adj. unable to understand or think clearly",
+				"chinese": "迷惑的",
+				"example": "Like many young people who are insecure and confused, they had an inchoate sense that they were guilty of something; they just needed to be told what it was"
+			},
+			"level": "2"
+		},
+		{
+			"word": "infuse", 
+			"config": {
+				"prefix": "in",
+				"root": "",
+				"suffix": "fus",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 9, "lon": 9 
+			},	
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "注入，灌输",
+				"example": ""
+			},
+			"level": "1"
+		},
+		{
+			"word": "refuse", 
+			"config": {
+				"prefix": "re",
+				"root": "",
+				"suffix": "fus",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 10, "lon": 9 
+			},	
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "拒绝",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "profuse", 
+			"config": {
+				"prefix": "pro",
+				"root": "",
+				"suffix": "fus",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 11, "lon": 9 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "suffuse", 
+			"config": {
+				"prefix": "suf",
+				"root": "",
+				"suffix": "fus",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 17, "lon": 9 
+			},	
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "充满；染遍",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "emotional", 
+			"config": {
+				"prefix": "e",
+				"root": "",
+				"suffix": "mot",
+				"tale": "ional"
+			},
+			"location": {
+				"lat": 1, "lon": 11
+			},
+			"details": {
+				"pronun": "[ɪˈməʊʃənl]",
+				"english": "(1)adj. relating to motions",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "1"
+		},
+		{
+			"word": "immortality", 
+			"config": {
+				"prefix": "im",
+				"root": "",
+				"suffix": "mort",
+				"tale": "ality"
+			},
+			"location": {
+				"lat": 9, "lon": 11 
+			},
+			"details": {
+				"pronun": "[ˌɪmɔ:ˈtæləti]",
+				"english": "n. the quality or state of someone or something that will never die or be forgotten",
+				"chinese": "不朽",
+				"example": "A viral multimedia project written by Jon Bois, of SB Nation, combines text, YouTube videos, and eerie graphics to explore sports, boredom, and immortality in the year 17776."
+			},
+			"level": "2"
+		},
+		{
+			"word": "remote", 
+			"config": {
+				"prefix": "re",
+				"root": "",
+				"suffix": "mot",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 10, "lon": 11 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "遥远的（re回+mote→动回去→退回去→遥远的）",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "promotion", 
+			"config": {
+				"prefix": "pro",
+				"root": "",
+				"suffix": "mot",
+				"tale": "ion"
+			},
+			"location": {
+				"lat": 11, "lon": 11 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "despair", 
+			"config": {
+				"prefix": "un",
+				"root": "",
+				"suffix": "spair",
+				"tale": ""
+			},
+			"location": {
+				"lat": 7, "lon": 12 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "绝望",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "prosper", 
+			"config": {
+				"prefix": "pro",
+				"root": "",
+				"suffix": "sper",
+				"tale": ""
+			},
+			"location": {
+				"lat": 11, "lon": 12
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "elegiac", 
+			"config": {
+				"prefix": "e",
+				"root": "",
+				"suffix": "leg",
+				"tale": "iac"
+			},
+			"location": {
+				"lat": 1, "lon": 13 
+			},
+			"details": {
+				"pronun": "[ˌelɪˈdʒaɪək]",
+				"english": "adj. written in or consisting of elegiac couplets",
+				"chinese": "哀悼的",
+				"example": "The men fleeing our helicopter were transformed by his camera, their escape now framed as an elegiac narrative: solitary figures traversing an apocalyptic topography."
+			},
+			"level": "2"
+		},
+		{
+			"word": "allege", 
+			"config": {
+				"prefix": "al",
+				"root": "",
+				"suffix": "leg",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 3, "lon": 13 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "主张；宣称",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "intimate", 
+			"config": {
+				"prefix": "in",
+				"root": "",
+				"suffix": "tim",
+				"tale": "ate"
+			},
+			"location": {
+				"lat": 9, "lon": 14 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "(1)亲密的(2)暗示",
+				"example": "Antifa activists don’t often speak to the media, but Bray is a former Occupy Wall Street organizer and an avowed leftist; he has intimate access to his subjects, if not much critical distance from them."
+			},
+			"level": "2"
+		},
+		{
+			"word": "exsanguine", 
+			"config": {
+				"prefix": "ex",
+				"root": "",
+				"suffix": "sanguin",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 2, "lon": 15 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "deferential", 
+			"config": {
+				"prefix": "de",
+				"root": "",
+				"suffix": "fer",
+				"tale": "ential"
+			},
+			"location": {
+				"lat": 6, "lon": 16 
+			},
+			"details": {
+				"pronun": "[ˌdefə'renʃl]",
+				"english": "adj. showing or expressing deference",
+				"chinese": "恭敬的",
+				"example": "Since the election, some journalists at the Wall Street Journal have expressed frustration with what they say is overly cautious and deferential reporting on Trump, at a time when competitors are aggressively scrutinizing the president."
+			},
+			"level": "1"
+		},
+		{
+			"word": "confer", 
+			"config": {
+				"prefix": "con",
+				"root": "",
+				"suffix": "fer",
+				"tale": ""
+			},
+			"location": {
+				"lat": 8, "lon": 16 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "协商，谈判",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "indifferent", 
+			"config": {
+				"prefix": "in",
+				"root": "dif",
+				"suffix": "fer",
+				"tale": "ent"
+			},
+			"location": {
+				"lat": 9, "lon": 16 
+			},
+			"details": {
+				"pronun": "[ɪnˈdɪfrənt]",
+				"english": "(1)adj. not interested in or concerned about something",
+				"chinese": "(1) 冷漠的 (2)公正的",
+				"example": "Nicolas Cage and Willem Dafoe as coldly indifferent, and mediocre, criminals, in Paul Schrader’s new film, “Dog Eat Dog.”"
+			},
+			"level": "2"
+		},
+		{
+			"word": "referable", 
+			"config": {
+				"prefix": "re",
+				"root": "",
+				"suffix": "fer",
+				"tale": "able"
+			},
+			"location": {
+				"lat": 10, "lon": 16 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "a 可归因于…的",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "prefer", 
+			"config": {
+				"prefix": "pre",
+				"root": "",
+				"suffix": "fer",
+				"tale": ""
+			},
+			"location": {
+				"lat": 13, "lon": 16 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "更喜欢",
+				"example": ""
+			},
+			"level": "1"
+		},
+		{
+			"word": "suffer", 
+			"config": {
+				"prefix": "suf",
+				"root": "",
+				"suffix": "fer",
+				"tale": ""
+			},
+			"location": {
+				"lat": 17, "lon": 16 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "受苦；经受",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "effervescent", 
+			"config": {
+				"prefix": "ef",
+				"root": "",
+				"suffix": "ferv",
+				"tale": "escent"
+			},
+			"location": {
+				"lat": 1, "lon": 17 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "perfervid", 
+			"config": {
+				"prefix": "per",
+				"root": "",
+				"suffix": "ferv",
+				"tale": "id"
+			},
+			"location": {
+				"lat": 14, "lon": 17 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "elate", 
+			"config": {
+				"prefix": "e",
+				"root": "",
+				"suffix": "lat",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 1, "lon": 18 
+			},
+			"details": {
+				"pronun": "[,ɪntərɪ'leɪtɪd]",
+				"english": "adj. having a mutual or reciprocal relation",
+				"chinese": "相互联系的",
+				"example": "At the time of his speech at Riverside Church, King had come to see war, poverty, and racism as interrelated; taking on one necessarily meant confronting the others."
+			},
+			"level": "2"
+		},
+		{
+			"word": "sublate", 
+			"config": {
+				"prefix": "sub",
+				"root": "",
+				"suffix": "lat",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 17, "lon": 18
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "v消除；否定",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "disinclination", 
+			"config": {
+				"prefix": "dis",
+				"root": "in",
+				"suffix": "clin",
+				"tale": "ation"
+			},
+			"location": {
+				"lat": 5, "lon": 20
+			},
+			"details": {
+				"pronun": "[ˌdɪsˌɪnklɪˈneɪʃn]",
+				"english": "n. a feeling of not wanting to do something",
+				"chinese": "不情愿",
+				"example": "The author’s disinclination toward the private and the psychological leaves a reader of “Bush” wondering exactly when and how an “unnerving level of certitude” took hold of the title figure."
+			},
+			"level": "2"
+		},
+		{
+			"word": "decline", 
+			"config": {
+				"prefix": "de",
+				"root": "",
+				"suffix": "clin",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 6, "lon": 20 
+			},
+			"details": {
+				"pronun": "[dɪˈklaɪn]",
+				"english": "(1)n./v. to become worse in condition or quality",
+				"chinese": "衰落",
+				"example": "Though Gibson had posted a Facebook video condemning Christian and acknowledging that his gatherings had attracted “legitimate Nazis,” he had declined to cancel the Sunday rally."
+			},
+			"level": "2"
+		},
+		{
+			"word": "inclined", 
+			"config": {
+				"prefix": "in",
+				"root": "",
+				"suffix": "clin",
+				"tale": "ed"
+			},
+			"location": {
+				"lat": 9, "lon": 20 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "倾向于…的",
+				"example": "In the background was London—a city of disease and murders, and perfect material for a mind inclined toward the gothic."
+			},
+			"level": "2"
+		},
+		{
+			"word": "proclivity", 
+			"config": {
+				"prefix": "pro",
+				"root": "",
+				"suffix": "cliv",
+				"tale": "ity"
+			},
+			"location": {
+				"lat": 11, "lon": 20 
+			},
+			"details": {
+				"pronun": "[prəˈklɪvəti]",
+				"english": "n. a strong natural liking for something that is usually bad",
+				"chinese": "倾向，嗜好",
+				"example": "In the case of Iran, while a formal policy “review” is still ongoing, Trump’s own proclivity for bluster, and apparent obsession with undoing whatever President Barack Obama did, is already leading in a dangerous direction."
+			},
+			"level": "2"
+		},
+		{
+			"word": "distend", 
+			"config": {
+				"prefix": "dis",
+				"root": "",
+				"suffix": "tend",
+				"tale": ""
+			},
+			"location": {
+				"lat": 5, "lon": 21
+			},
+			"details": {
+				"pronun": "[dɪˈstend]",
+				"english": "v. to become larger and rounder because of pressure from inside",
+				"chinese": "膨胀",
+				"example": "Bubbles can cause bloating and gas, which distend your stomach, providing more surface area for alcohol to be absorbed (and mess with your sleep), according to Dasgupta."
+			},
+			"level": "2"
+		},
+		{
+			"word": "unostentatious", 
+			"config": {
+				"prefix": "un",
+				"root": "os",
+				"suffix": "tent",
+				"tale": "atious"
+			},
+			"location": {
+				"lat": 7, "lon": 21 
+			},
+			"details": {
+				"pronun": "['ʌnˌɒsten'teɪʃəs]",
+				"english": "adj. not ostentatious",
+				"chinese": "不夸耀的",
+				"example": "The gestures mean very little to the orchestra, which needs only a precise and unostentatious beat to help it perform, any well- trained orchestra is quite capable of making their entrances without the prodding of the conductor."
+			},
+			"level": "1"
+		},
+		{
+			"word": "contented", 
+			"config": {
+				"prefix": "con",
+				"root": "",
+				"suffix": "tent",
+				"tale": "ed"
+			},
+			"location": {
+				"lat": 8, "lon": 21 
+			},
+			"details": {
+				"pronun": "[kənˈtentɪd]",
+				"english": "adj. happy and satisfied ",
+				"chinese": "满足的",
+				"example": "In the morning, the pig’s mother sees the young bride “lying in the bed, muddy as it was, looking entirely pleased and contented."
+			},
+			"level": "2"
+		},
+		{
+			"word": "intensity", 
+			"config": {
+				"prefix": "in",
+				"root": "",
+				"suffix": "tens",
+				"tale": "ity"
+			},
+			"location": {
+				"lat": 9, "lon": 21 
+			},
+			"details": {
+				"pronun": "[ɪnˈtensəti]",
+				"english": "(1)n. the quality or state of being intense (2)n. the degree or amount of strength or force that something has",
+				"chinese": "强度",
+				"example": "It has become almost a cliché of basketball fandom to appreciate the ferocious intensity and reckless control of the Oklahoma City Thunder’s Russell Westbrook."
+			},
+			"level": "1"
+		},
+		{
+			"word": "combat", 
+			"config": {
+				"prefix": "com",
+				"root": "",
+				"suffix": "bat",
+				"tale": ""
+			},
+			"location": {
+				"lat": 8, "lon": 22 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "退还；扣除；在（木块）上开槽口；",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "rebate", 
+			"config": {
+				"prefix": "re",
+				"root": "",
+				"suffix": "bat",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 10, "lon": 22 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "减少；回扣",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "accelerate", 
+			"config": {
+				"prefix": "ac",
+				"root": "",
+				"suffix": "celer",
+				"tale": "ate"
+			},
+			"location": {
+				"lat": 3, "lon": 23 
+			},
+			"details": {
+				"pronun": "[əkˈseləreɪt]",
+				"english": "(1)v. to move faster: to gain speed",
+				"chinese": "加速",
+				"example": "The Ozark Radio Network reports that items taken during a search of the home and surrounding area included a meat grinder, a knife and 26 bottles of lye, which can be used to accelerate the breakdown of bodily tissue."
+			},
+			"level": "2"
+		},
+		{
+			"word": "decelerate", 
+			"config": {
+				"prefix": "de",
+				"root": "",
+				"suffix": "celer",
+				"tale": "ate"
+			},
+			"location": {
+				"lat": 6, "lon": 23 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "减速；降低",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "elongate", 
+			"config": {
+				"prefix": "e",
+				"root": "longate",
+				"suffix": "",
+				"tale": ""
+			},
+			"location": {
+				"lat": 1, "lon": 25 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "拉长",
+				"example": "Even though Copeland now has a more elongated—more classical—physique, and no longer has a double-D chest, she remains more buxom than most ballet dancers, and also more visibly athletic."
+			},
+			"level": "2"
+		},
+		{
+			"word": "exaggerate", 
+			"config": {
+				"prefix": "ex",
+				"root": "aggerate",
+				"suffix": "",
+				"tale": ""
+			},
+			"location": {
+				"lat": 2, "lon": 25 
+			},
+			"details": {
+				"pronun": "[ɪgˈzædʒəreɪt]",
+				"english": "v. to think of or describe something as larger or greater than it really is",
+				"chinese": "夸大",
+				"example": "One of the dangers in covering an abnormal Presidency is that journalists will constantly be on the lookout for signs of normalcy, and exaggerate and even celebrate them as proof that things aren’t so unusual, after all."
+			},
+			"level": "2"
+		},
+		{
+			"word": "unassailable", 
+			"config": {
+				"prefix": "un",
+				"root": "assailable",
+				"suffix": "",
+				"tale": ""
+			},
+			"location": {
+				"lat": 7, "lon": 25 
+			},
+			"details": {
+				"pronun": "[ˌʌnəˈseɪləbl]",
+				"english": "adj. not able to be doubted",
+				"chinese": "毋庸置疑的",
+				"example": "In the run-up to the Iraq war, many in the mainstream media, including the New York Times, lost their veneer of unassailable trustworthiness for many readers and viewers."
+			},
+			"level": "2"
+		},
+		{
+			"word": "impracticable", 
+			"config": {
+				"prefix": "im",
+				"root": "practicable",
+				"suffix": "",
+				"tale": ""
+			},
+			"location": {
+				"lat": 9, "lon": 25 
+			},
+			"details": {
+				"pronun": "[ɪmˈpræktɪkəbl]",
+				"english": "adj. difficult or impossible to do or use",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "opportune", 
+			"config": {
+				"prefix": "op",
+				"root": "portune",
+				"suffix": "",
+				"tale": ""
+			},
+			"location": {
+				"lat": 12, "lon": 25 
+			},
+			"details": {
+				"pronun": "[ˈɒpətju:n]",
+				"english": "adj. done or happening at the right time",
+				"chinese": "适时的",
+				"example": "Perhaps it was personally difficult, but politically the arrangement is opportune."
+			},
+			"level": "2"
+		},
+		{
+			"word": "supple", 
+			"config": {
+				"prefix": "sup",
+				"root": "ple",
+				"suffix": "",
+				"tale": ""
+			},
+			"location": {
+				"lat": 17, "lon": 25 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "增补，补充",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "eliminate", 
+			"config": {
+				"prefix": "e",
+				"root": "",
+				"suffix": "limin",
+				"tale": "ate"
+			},
+			"location": {
+				"lat": 1, "lon": 27 
+			},
+			"details": {
+				"pronun": "[ɪˈlɪmɪneɪt]",
+				"english": "(1)v. to remove (something that is not wanted or needed)",
+				"chinese": "消除",
+				"example": "Gordon said that, at most banks today, the board members and senior staff don’t even have a credit card associated with the bank, in order to eliminate any appearance of a conflict of interest."
+			},
+			"level": "1"
+		},
+		{
+			"word": "delimit", 
+			"config": {
+				"prefix": "de",
+				"root": "",
+				"suffix": "lim",
+				"tale": "it"
+			},
+			"location": {
+				"lat": 6, "lon": 27 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "定界限",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "preliminary", 
+			"config": {
+				"prefix": "pre",
+				"root": "",
+				"suffix": "limin",
+				"tale": "ary"
+			},
+			"location": {
+				"lat": 13, "lon": 27 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "预备的，初步的",
+				"example": ""
+			},
+			"level": "1"
+		},
+		{
+			"word": "sublime", 
+			"config": {
+				"prefix": "sub",
+				"root": "",
+				"suffix": "lim",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 17, "lon": 27 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "崇高的",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "abbreviate", 
+			"config": {
+				"prefix": "ab",
+				"root": "",
+				"suffix": "brev",
+				"tale": "iate"
+			},
+			"location": {
+				"lat": 3, "lon": 28 
+			},
+			"details": {
+				"pronun": "[əˈbri:vieɪt]",
+				"english": "v. to make shorter",
+				"chinese": "缩短",
+				"example": "The fact that Mr. McConnell felt compelled to actually abbreviate the recess, just days after Republicans were snickering at the very idea, underscored the seriousness of his party’s plight."
+			},
+			"level": "2"
+		},
+		{
+			"word": "deflate", 
+			"config": {
+				"prefix": "de",
+				"root": "",
+				"suffix": "flat",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 6, "lon": 29 
+			},
+			"details": {
+				"pronun": "[dɪˈfleɪt]",
+				"english": "v. to reduce or cause to contract",
+				"chinese": "使减少",
+				"example": "Jeff Zucker has gotten telephone calls of bitter complaint from Jared Kushner about the coverage of his father-in-law, but if the performance of Jake Tapper and others there is any indication, the attempt to intimidate CNN has not deflated any spirits."
+			},
+			"level": "1"
+		},
+		{
+			"word": "inflate", 
+			"config": {
+				"prefix": "in",
+				"root": "",
+				"suffix": "flat",
+				"tale": "e"
+			},
+			"location": {
+				"lat": 9, "lon": 29 
+			},
+			"details": {
+				"pronun": "[ɪnˈfleɪt]",
+				"english": "(1)v. to swell or distend with air or gas (2)v. to think or say that (something) is larger or more important than it really is",
+				"chinese": "(1)使膨胀(2)夸大",
+				"example": "While our crew members are sparring with neighboring passengers, you can inflate the life vest and wrap it around your head for protection when it is your turn to throw some punches."
+			},
+			"level": "1"
+		},
+		{
+			"word": "distinctive", 
+			"config": {
+				"prefix": "dis",
+				"root": "",
+				"suffix": "tin",
+				"tale": "ctive"
+			},
+			"location": {
+				"lat": 5, "lon": 30
+			},
+			"details": {
+				"pronun": "[dɪˈstɪŋktɪv]",
+				"english": "adj. having a quality or characteristic that makes a person or thing different from others",
+				"chinese": "特别的",
+				"example": "It veers off in directions that are as surprising as they are idiosyncratic; the movie’s identity is distinctive and integral—it really is a unique experience."
+			},
+			"level": "2"
+		},
+		{
+			"word": "unattainable", 
+			"config": {
+				"prefix": "un",
+				"root": "at",
+				"suffix": "tain",
+				"tale": "able"
+			},
+			"location": {
+				"lat": 7, "lon": 30 
+			},
+			"details": {
+				"pronun": "[ˌʌnəˈteɪnəbl]",
+				"english": "adj. cannot be achieved or is not available",
+				"chinese": "无法获得的，无法达到的",
+				"example": "Throughout the world, young women are compelled, through tradition or religion, to give birth to so many children that a reasonable quality of life is unattainable."
+			},
+			"level": "2"
+		},
+		{
+			"word": "contingent", 
+			"config": {
+				"prefix": "con",
+				"root": "",
+				"suffix": "tin",
+				"tale": "gent"
+			},
+			"location": {
+				"lat": 8, "lon": 30 
+			},
+			"details": {
+				"pronun": "[kənˈtɪndʒənt]",
+				"english": "adj. depending on something else that might or might not happen",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "2"
+		},
+		{
+			"word": "retain", 
+			"config": {
+				"prefix": "re",
+				"root": "",
+				"suffix": "tain",
+				"tale": ""
+			},
+			"location": {
+				"lat": 10, "lon": 30 
+			},
+			"details": {
+				"pronun": "[rɪˈteɪn]",
+				"english": "v. to keep (someone) in a position, job, etc.",
+				"chinese": "保持",
+				"example": "On Sunday, the people of France annoyingly retained their traditional right to claim intellectual superiority over Americans, as millions of French citizens paused to enjoy just how much smarter they were than their allies across the Atlantic."
+			},
+			"level": "2"
+		},
+		{
+			"word": "pertain", 
+			"config": {
+				"prefix": "per",
+				"root": "",
+				"suffix": "tain",
+				"tale": ""
+			},
+			"location": {
+				"lat": 14, "lon": 30 
+			},
+			"details": {
+				"pronun": "[pəˈteɪn]",
+				"english": "(1)v. to relate to someone or something (2)v. to belong as a part, member, accessory or product",
+				"chinese": "(1)有关(2)从属",
+				"example": "I believe the next tranche of his documents pertain to the Clinton Foundation, but there's no telling what the October surprise may be."
+			},
+			"level": "2"
+		},
+		{
+			"word": "conscience",
+			"config": {
+				"prefix": "con",
+				"root": "",
+				"suffix": "sci",
+				"tale": "ence"
+			},
+			"location": {
+				"lat": 8, "lon": 34 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "",
+				"example": ""
+			},
+			"level": "1"
+		},
+		{
+			"word": "prescient",
+			"config": {
+				"prefix": "pre",
+				"root": "",
+				"suffix": "sci",
+				"tale": "ent"
+			},
+			"location": {
+				"lat": 13, "lon": 34 
+			},
+			"details": {
+				"pronun": "[ˈpresiənt]",
+				"english": "adj. able to know or predict what was going to happen in the future",
+				"chinese": "有预知能⼒的",
+				"example": "Connie Converse’s songs, misfits in their own time, seem eerily prescient today in expressing our ache and ambivalence."
+			},
+			"level": "1"
+		},
+		{
+			"word": "subconscious",
+			"config": {
+				"prefix": "sub",
+				"root": "con",
+				"suffix": "sci",
+				"tale": "ous"
+			},
+			"location": {
+				"lat": 17, "lon": 34 
+			},
+			"details": {
+				"pronun": "",
+				"english": "",
+				"chinese": "潜意识的",
+				"example": ""
+			},
+			"level": "1"
+		}
+	]
+}

@@ -1,0 +1,6 @@
+export const IMG_TEXTURE = require('../assets/images/background.png')
+export const IMG_BRAIN = require('../assets/images/brain.png')
+export const IMG_ZOOMIN = require('../assets/images/zoom-in.png')
+export const IMG_ZOOMOUT = require('../assets/images/zoom-out.png')
+export const IMG_BACK = require('../assets/images/backbtn.png')
+export const IMG_LANDMARK = require('../assets/images/landmark.png')

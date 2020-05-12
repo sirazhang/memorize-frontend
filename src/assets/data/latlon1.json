@@ -1,0 +1,222 @@
+{
+	"lat": [
+		{ 
+			"affix": "a", 
+			"meaning": "lack" 
+		},
+		{ 
+			"affix": "e-,ef-", 
+			"meaning": "out,out of,from" 
+		},
+		{ 
+			"affix": "ex-", 
+			"meaning": "out of" 
+		},
+		{ 
+			"affix": "ab-,ac-,ad-,af-,ag-,an-,ap-,ar-,as-,at-", 
+			"meaning": "to/at" 
+		},
+		{ 
+			"affix": "em-,en-", 
+			"meaning": "put in or into" 
+		},
+		{ 
+			"affix": "dis-", 
+			"meaning": "apart" 
+		},
+		{ 
+			"affix": "de-", 
+			"meaning": "down" 
+		},
+		{ 
+			"affix": "un-", 
+			"meaning": "not" 
+		},
+		{ 
+			"affix": "com-,con-", 
+			"meaning": "together,with" 
+		},
+		{ 
+			"affix": "im-,in-", 
+			"meaning": "not/without" 
+		},
+		{ 
+			"affix": "re-", 
+			"meaning": "back/backward" 
+		},
+		{ 
+			"affix": "pro-", 
+			"meaning": "forward" 
+		},
+		{ 
+			"affix": "ob-", 
+			"meaning": "toward/to/on" 
+		},
+		{ 
+			"affix": "pre-", 
+			"meaning": "before" 
+		},
+		{ 
+			"affix": "per-", 
+			"meaning": "through" 
+		},
+		{ 
+			"affix": "ad-", 
+			"meaning": "forward" 
+		},
+		{ 
+			"affix": "mis-", 
+			"meaning": "bad(ly),wrong(ly)" 
+		},
+		{ 
+			"affix": "suc-,suf-,sup-,sur-", 
+			"meaning": "under/below" 
+		}
+	],
+	"lon": [
+		{ 
+			"affix": "man,maun", 
+			"meaning": "hand" 
+		},
+		{ 
+			"affix": "vinc", 
+			"meaning": "conquer,overcome" 
+		},
+		{ 
+			"affix": "rid,ris", 
+			"meaning": "laugh" 
+		},
+		{ 
+			"affix": "secut,sequ", 
+			"meaning": "follow" 
+		},
+		{ 
+			"affix": "umbr", 
+			"meaning": "shadow" 
+		},
+		{ 
+			"affix": "flam,flagr", 
+			"meaning": "blaze" 
+		},
+		{ 
+			"affix": "fract,frang", 
+			"meaning": "break" 
+		},
+		{ 
+			"affix": "pos,posit", 
+			"meaning": "put" 
+		},
+		{ 
+			"affix": "pass", 
+			"meaning": "felling" 
+		},
+		{ 
+			"affix": "fus", 
+			"meaning": "pour" 
+		},
+		{ 
+			"affix": "tenu", 
+			"meaning": "thin" 
+		},
+		{ 
+			"affix": "mort", 
+			"meaning": "death" 
+		},
+		{ 
+			"affix": "sper", 
+			"meaning": "hope" 
+		},
+		{ 
+			"affix": "lect,leg", 
+			"meaning": "speak,read" 
+		},
+		{ 
+			"affix": "tim", 
+			"meaning": "fear" 
+		},
+		{ 
+			"affix": "sanguin", 
+			"meaning": "blood" 
+		},
+		{ 
+			"affix": "fer", 
+			"meaning": "bring,carry" 
+		},
+		{ 
+			"affix": "ferv", 
+			"meaning": "boil" 
+		},
+		{ 
+			"affix": "lat", 
+			"meaning": "bring,out" 
+		},
+		{ 
+			"affix": "viv,vit,vig", 
+			"meaning": "life" 
+		},
+		{ 
+			"affix": "clin,cliv", 
+			"meaning": "lean,slope" 
+		},
+		{ 
+			"affix": "tend,tent,tens", 
+			"meaning": "stretch" 
+		},
+		{ 
+			"affix": "bat", 
+			"meaning": "beat" 
+		},
+		{ 
+			"affix": "celer", 
+			"meaning": "quick,speed" 
+		},
+		{ 
+			"affix": "solv,solu,solut", 
+			"meaning": "loosen" 
+		},
+		{ 
+			"affix": "", 
+			"meaning": "" 
+		},
+		{ 
+			"affix": "greg", 
+			"meaning": "group" 
+		},
+		{ 
+			"affix": "limin,lim", 
+			"meaning": "threshold" 
+		},
+		{ 
+			"affix": "brev,bridg", 
+			"meaning": "short" 
+		},
+		{ 
+			"affix": "flat", 
+			"meaning": "blow" 
+		},
+		{ 
+			"affix": "tain,ten,tin", 
+			"meaning": "hold" 
+		},
+		{ 
+			"affix": "vor", 
+			"meaning": "eat" 
+		},
+		{ 
+			"affix": "rud", 
+			"meaning": "rude" 
+		},
+		{ 
+			"affix": "pend,pens,pond", 
+			"meaning": "weight,expend" 
+		},
+		{ 
+			"affix": "sci", 
+			"meaning": "know" 
+		},
+		{ 
+			"affix": "ver", 
+			"meaning": "true" 
+		}
+	]
+}
