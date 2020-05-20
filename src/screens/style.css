@@ -1,0 +1,400 @@
+/* Home screen*/
+
+.home-container {
+    background-color: #206ea7;
+    width: 100vw;
+    height: 100vh;
+}
+
+.home-container .bg-dot{
+    height: auto;
+    width: 110vh;
+    position: absolute;
+    right: 10%;
+    top: 20%;
+}
+
+.home-container .home-body{
+    padding: 30px;
+}
+
+.home-container .home-body .home-signpan{
+    margin-top: 30vh;
+    color: #fff;
+    font-family: Helvetica;
+}
+
+.home-container .home-body .home-signpan .home-signpan-des-title{
+    font-size: 25px;
+    padding: 5px 20px;
+}
+
+.home-container .home-body .home-signpan .home-signpan-des-content{
+    font-size: 20px;
+    padding: 3px 20px;
+}
+
+.home-container .home-body .home-signpan .home-signbtns{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.home-container .home-body .home-signpan .home-signbtns .home-signfreebtn{
+    width: 223px;
+    height: 50px;
+    border-radius: 20px;
+    filter: drop-shadow(0px 3px 3.5px rgba(0,0,0,0.16));
+    background-color: #00000000;
+    border: 1px solid #ffffff;
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 500;
+    margin-right: 30px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.home-container .home-body .home-signpan .home-signbtns .home-signfreebtn:hover{
+    background-color: #ffffff22;
+}
+.home-container .home-body .home-signpan .home-signbtns .home-signfreebtn:focus{
+    background-color: #ffffff10;
+}
+.home-container .home-body .home-followus{
+    font-size: 18px;
+    color: #ffffff;
+    font-family: Helvetica;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}
+
+.home-container .home-body .home-followus-icons{
+    margin-top: 20px;
+}
+
+.home-container .home-body .home-contactus{
+    position: absolute;
+    bottom: 50px;
+}
+
+.home-container .home-body .home-contactus .home-contactus-brain{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.home-container .home-body .home-contactus .home-contactus-brain span{
+    color: #fff;
+    font-size: 25px;
+    font-family: "Helvetica";
+    font-weight: bold;
+    padding: 0px 20px;
+}
+
+.home-container .home-body .home-contactus .home-contactus-text{
+    color: #fff;
+    font-size: 15px;
+    font-family: "Helvetica";
+    font-weight: bold;
+    padding: 5px 20px;
+}
+
+.home-container .home-body .home-contactus .home-contactus-email{
+    color: #fff;
+    font-size: 15px;
+    font-family: "Helvetica";
+    font-weight: lighter;
+    padding: 5px 20px 20px 20px;
+}
+
+.home-container .home-body .home-contactus .home-contactus-address{
+    color: #fff;
+    font-size: 15px;
+    font-family: "Helvetica";
+    font-weight: lighter;
+    padding: 0px 20px;
+}
+
+.home-container .home-signup{
+    background-color: #021B2F17;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.home-container .home-signup .home-signup-modal{
+    width: 633px;
+    height: 473px;
+    border-radius: 47px;
+    filter: drop-shadow(9.899px 9.899px 6px rgba(0,0,0,0.16));
+    background-color: #ffffff;
+    border: 1px solid #707070;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.home-container .home-signup .home-signup-modal .home-signup-modal-title{
+    font-size: 21px;
+    color: #206ea7;
+    font-family: "Helvetica";
+    font-weight: bold;
+    margin-top: 70px;
+    margin-left: 70px;
+}
+.home-container .home-signup .home-signup-modal .form-group-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+.home-container .home-signup .home-signup-modal .form-group-input .input-template{
+    width: 382px;
+    height: 52px;
+    border-radius: 21px;
+    background-color: #ffffff;
+    border: 1px solid #707070;
+    justify-content: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+.home-container .home-signup .home-signup-modal .form-group-input .input-template .title{
+    position: absolute;
+    background-color: #fff;
+    height: 27px;
+    width: 93px;
+    left: -20px;
+    top: -3px;
+    color: #707070;
+    font-size: 18px;
+    font-family: Helvetica;
+}
+
+.home-container .home-signup .home-signup-modal .form-group-input .input-template input{
+    border: none;
+    font-size: 18px;
+    color: #206ea7;
+    font-family: Helvetica;
+    font-weight: lighter;
+    margin: 15px 80px;
+    width: 290px;
+}
+
+.home-container .home-signup .home-signup-modal .form-group-input .input-template input:focus{
+    outline: none;
+}
+
+.home-container .home-signup .home-signup-modal .form-group-input .input-template input::placeholder{
+    font-style: italic;
+    color: #70707055;
+}
+
+.home-container .home-signup .home-signup-modal .form-group-input .terms{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #70707080;
+    font-family: Helvetica;
+}
+
+.home-container .home-signup .home-signup-modal .form-group-input .terms .checkbox{
+    width: 17px;
+    height: 17px;
+    border-radius: 9px;
+    background-color: #206ea7;
+    margin-right: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+.home-container .home-signup .home-signup-modal .form-group-input .terms .uncheckbox{
+    width: 17px;
+    height: 17px;
+    border-radius: 9px;
+    background-color: #70707080;
+    margin-right: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+.home-container .home-signup .home-signup-modal .form-group-input .terms .checkbox .checkmark{
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
+.home-container .home-signup .home-signup-modal .form-group-input .terms .uncheckbox .checkmark{
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
+
+.home-container .home-signup .home-signup-modal .form-group-input .button-submit{
+    width: 202px;
+    height: 53px;
+    border-radius: 27px;
+    background-color: #206ea7;
+    border: 1px solid #707070;
+    font-size: 21px;
+    color: #ffffff;
+    font-family: "Helvetica";
+    font-weight: 500;
+    margin-top: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+.home-container .home-signin{
+    background-color: #021B2F17;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.home-container .home-signin .home-signin-modal{
+    width: 633px;
+    height: 400px;
+    border-radius: 47px;
+    filter: drop-shadow(9.899px 9.899px 6px rgba(0,0,0,0.16));
+    background-color: #ffffff;
+    border: 1px solid #707070;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.home-container .home-signin .home-signin-modal .home-signin-modal-title{
+    font-size: 21px;
+    color: #206ea7;
+    font-family: "Helvetica";
+    font-weight: bold;
+    margin-top: 70px;
+    margin-left: 70px;
+}
+
+.home-container .home-signin .home-signin-modal .form-group-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.home-container .home-signin .home-signin-modal .form-group-input .input-template{
+    width: 382px;
+    height: 52px;
+    border-radius: 21px;
+    background-color: #ffffff;
+    border: 1px solid #707070;
+    justify-content: center;
+    position: relative;
+    margin-top: 20px;
+}
+
+
+.home-container .home-signin .home-signin-modal .form-group-input .input-template .title{
+    position: absolute;
+    background-color: #fff;
+    height: 27px;
+    width: 93px;
+    left: -20px;
+    top: -3px;
+    color: #707070;
+    font-size: 18px;
+    font-family: Helvetica;
+}
+
+.home-container .home-signin .home-signin-modal .form-group-input .input-template input{
+    border: none;
+    font-size: 18px;
+    color: #206ea7;
+    font-family: Helvetica;
+    font-weight: lighter;
+    margin: 15px 80px;
+    width: 290px;
+}
+
+.home-container .home-signin .home-signin-modal .form-group-input .input-template input:focus{
+    outline: none;
+}
+
+.home-container .home-signin .home-signin-modal .form-group-input .input-template input::placeholder{
+    font-style: italic;
+    color: #70707055;
+}
+
+.home-container .home-signin .home-signin-modal .form-group-input .terms{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #70707080;
+    font-family: Helvetica;
+}
+
+.home-container .home-signin .home-signin-modal .form-group-input .terms .checkbox{
+    width: 17px;
+    height: 17px;
+    border-radius: 9px;
+    background-color: #206ea7;
+    margin-right: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+.home-container .home-signin .home-signin-modal .form-group-input .terms .uncheckbox{
+    width: 17px;
+    height: 17px;
+    border-radius: 9px;
+    background-color: #70707080;
+    margin-right: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+.home-container .home-signin .home-signin-modal .form-group-input .terms .checkbox .checkmark{
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
+.home-container .home-signin .home-signin-modal .form-group-input .terms .uncheckbox .checkmark{
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
+
+.home-container .home-signin .home-signin-modal .form-group-input .button-submit{
+    width: 202px;
+    height: 53px;
+    border-radius: 27px;
+    background-color: #206ea7;
+    border: 1px solid #707070;
+    font-size: 21px;
+    color: #ffffff;
+    font-family: "Helvetica";
+    font-weight: 500;
+    margin-top: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Main Screen */
