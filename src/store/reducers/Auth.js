@@ -4,7 +4,7 @@ const initialState = {
     id: '',
     token: '',
     msg: '',
-    loginState: 1
+    loginState: -10
 }
 
 export default (state=initialState, action) => {

@@ -29,11 +29,11 @@ const LoginFailed = (msg) => {
     }
 }
 
-const Login = (username, password) => {
+const Login = (email, password) => {
     return (dispatch) => {
         dispatch(LoginStart());
         var request = {
-            "username": username,
+            "email": email,
             "password": password
         }
         //dispatch(LoginSuccess(email, "msg", "token"));
@@ -41,15 +41,15 @@ const Login = (username, password) => {
         axios.post(LOGIN_API, request)
         .then(res => {
             if(res.data.auth === true){
-                dispatch(LoginSuccess(request.username, "Success", res.data.accessToken));
+                dispatch(LoginSuccess(request.email, "Success", res.data.accessToken));
             }else{
                 dispatch(LoginFailed("Failed"));
             }
         })
         .catch(err => {
             console.log(err);
+            dispatch(LoginFailed("Failed"));
         })
-        
     }
 }
 

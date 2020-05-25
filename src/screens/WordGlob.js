@@ -422,7 +422,7 @@ class WordGlob extends Component {
             })
             }
             {
-            !this.state.isLoading && 
+            !this.state.isLoading &&  
             this.state.latLabels.map((value, index) => {
                 var matrix = this.objects.matrixWorld;
                 //var lon = Math.PI * (word.location.lon - 18) / 18;
