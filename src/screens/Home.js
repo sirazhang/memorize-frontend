@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from '../components/Header';
 import * as IMGS from '../common/images';
+import * as UTILS from '../utils';
 
 import './style.css';
 
@@ -10,6 +11,7 @@ import RegisterActions from '../store/actions/Register'
 import SendEmailResetActions from '../store/actions/SendEmailReset';
 
 import {connect} from 'react-redux';
+import { Redirect } from 'react-router-dom';
 const mapStateToProps = (state) => {
     return {
         authState: state.auth,
@@ -106,6 +108,11 @@ class Home extends Component{
     }
 
     componentDidMount(){
+        // If user is already logged in then redirect to word glob screen
+        if(UTILS.checkJWTValidate()){
+            this.props.history.push("/wordglob");
+            return;
+        }
         window.addEventListener("mouseup", this.onHideDlg);
     }
 
@@ -130,11 +137,12 @@ class Home extends Component{
         //console.log(this.props.authState)
         if(loginState === 1){
             //console.log("Success Login")
-            this.props.history.push("/wordglob");
+            //this.props.history.push("/wordglob");
+            return (<Redirect to="/wordglob" />)
         }
         return(
             <div className="home-container">
-                <Header onClickSignin={this.onClickSignin}/>
+                <Header color="white" onClickSignin={this.onClickSignin}/>
                 <img className="bg-dot" src={IMGS.IMG_BG_MAP} alt="Null"/>
                 {/* <div className="bg-dot"></div> */}
                 <div className="home-body">
@@ -155,11 +163,15 @@ class Home extends Component{
                         </div>
                     </div>
                     <div className="home-followus">
-                        <span>Follow us</span>
+                        <div className="home-followus-title">Follow us</div>
                         <div className="home-followus-icons">
                             <img src={IMGS.IMG_ICON_INSTAGRAM} style={{width:25, height:25, marginRight:20}} alt="Null"/>
                             <img src={IMGS.IMG_ICON_FACEBOOK} style={{width:13, height:25, marginRight:20}} alt="Null"/>
-                            <img src={IMGS.IMG_ICON_TWITTER} style={{width:25, height:17, marginRight:20}} alt="Null"/>
+                            <span>memor_ize 2020</span>
+                        </div>
+                        <div className="home-followus-icons">
+                            <img src={IMGS.IMG_ICON_TWITTER} style={{width:25, height:25, marginRight:20}} alt="Null"/>
+                            <span>@Memorize41986293</span>
                         </div>
                     </div>
                     <div className="home-contactus">
@@ -168,7 +180,7 @@ class Home extends Component{
                             <img src={IMGS.IMG_BRAIN_WHITE} style={{width: 36, height: 41}} alt="Null"/>
                         </div>
                         <div className="home-contactus-text">Contact us</div>
-                        <div className="home-contactus-email">zhihuiz@usc.edu</div>
+                        <div className="home-contactus-email">Reach us at hello zhihuiz@usc.edu</div>
                         <div className="home-contactus-address">University of Southern California</div>
                         <div className="home-contactus-address">Address: Los Angeles, CA 90007</div>
                     </div>

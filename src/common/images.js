@@ -14,4 +14,5 @@ export const IMG_ICON_GOOGLE    = require('../assets/images/search@2x.png')
 export const IMG_ICON_FACEBOOK  = require('../assets/images/facebook@2x.png')
 export const IMG_ICON_INSTAGRAM = require('../assets/images/instagram@2x.png')
 export const IMG_ICON_TWITTER   = require('../assets/images/twitter@2x.png')
+export const IMG_ICON_PROFILE   = require('../assets/images/profile.png')
 

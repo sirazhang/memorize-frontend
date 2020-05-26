@@ -65,7 +65,8 @@
     background-color: #ffffff10;
 }
 .home-container .home-body .home-followus{
-    font-size: 18px;
+    display: flex;
+    flex-direction: column;
     color: #ffffff;
     font-family: Helvetica;
     position: absolute;
@@ -73,8 +74,18 @@
     right: 50px;
 }
 
+.home-container .home-body .home-followus .home-followus-title{
+    font-size: 18px;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
 .home-container .home-body .home-followus-icons{
-    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    font-family: Helvetica;
+    font-size: 15px;
 }
 
 .home-container .home-body .home-contactus{
@@ -681,3 +692,42 @@
 }
 
 /* Main Screen */
+
+/* Word Glob Screen */
+.progress-text{
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    z-index: 1001;
+    transform: translate(-50%, 0px);
+    width: 70%;
+}
+.progress-text .gre{
+    font-family: Helvetica;
+    font-size: 24px;
+    font-weight: normal;
+    color: #206ea7ee;
+}
+.progress-text .smallgre{
+    font-family: Helvetica;
+    font-size: 18px;
+    color: #206ea7ee;
+    margin: 7px 0px;
+}
+.progress-text .progress {
+    border-style: solid;
+    border-color: #2062a7;
+    border-radius: 10px;
+    border-width: 1px;
+    height: 17px;
+}
+
+.progress .bar {
+    background-color: #dee0e5;
+    border-radius: 10px;
+    width: 28%;
+    height: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {Router, Route, Switch, Redirect } from 'react-router-dom';
+import * as UTILS from './utils';
 
 import HomeScreen from './screens/Home'
 //import MainScreen from './screens/Main'
@@ -45,7 +46,7 @@ class App extends React.Component{
                         <Route exact path="/" component={HomeScreen} />
                         <Route exact path="/reset-password" component={ResetPassword} />
                         {/* <Route exact path="/" component={MainScreen} /> */}
-                        <PrivateRoute authed={localStorage.getItem("user-memorize-token") != null} exact path="/wordglob" component={WordGlobScreen} />
+                        <PrivateRoute authed={UTILS.checkJWTValidate()} exact path="/wordglob" component={WordGlobScreen} />
                     </Switch>
                 </Router>
             </div>

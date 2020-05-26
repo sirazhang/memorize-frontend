@@ -7,6 +7,7 @@ import {RADIUS_LINE} from '../common/consts'
 import * as COLORS from '../common/colors'
 import WordData from '../assets/data/words.json'
 import LatLon1 from '../assets/data/latlon1.json'
+import Header from "../components/Header";
 
 const ReviewDlg = ({ word, onOpenDetailDlg, hoverButton, onMouseEnterItem, onMouseLeaveItem, onClickKnown}) => (
     <div id="reviewdlg" style={{
@@ -204,10 +205,10 @@ class WordGlob extends Component {
             this.objects.remove(this.scene.getObjectByName("latlon"));
             this.drawLatLon(this.lineMaterialDash);
         }, 30)
-        this.controls.autoRotate=true;
-        this.controls.autoRotateSpeed=0.5;
+        // this.controls.autoRotate=true;
+        // this.controls.autoRotateSpeed=0.5;
         this.timeout = setTimeout(()=>{
-            this.controls.autoRotate=false;
+            //this.controls.autoRotate=false;
             this.camera.scale.z=4.2;
             clearInterval(this.intervalZoom);
         }, 901);
@@ -222,10 +223,10 @@ class WordGlob extends Component {
             this.drawLatLon(this.lineMaterialDash);
         }, 30)
         //this.drawLatLon(this.lineMaterialCont);
-        this.controls.autoRotate=true;
-        this.controls.autoRotateSpeed=0.5;
+        //this.controls.autoRotate=true;
+        //this.controls.autoRotateSpeed=0.5;
         this.timeout = setTimeout(()=>{
-            this.controls.autoRotate=false;
+            //this.controls.autoRotate=false;
             this.camera.scale.z = 1.2;
             clearInterval(this.intervalZoom);
         }, 901);
@@ -291,6 +292,8 @@ class WordGlob extends Component {
         this.controls.rotateSpeed = 1.0;
         this.controls.zoomSpeed = 1.2;
         this.controls.panSpeed = 0.8;
+        this.controls.autoRotate=true;
+        this.controls.autoRotateSpeed=0.1;
     }
 
     initializeCamera() {
@@ -358,6 +361,7 @@ class WordGlob extends Component {
     render() {
         return (
         <div>
+            <Header color="#206ea7" auth={true} history={this.props.history}/>
             <div
                 style={{ width: "100vw", height: "100vh" }}
                 ref={mount => {
@@ -493,27 +497,31 @@ class WordGlob extends Component {
                 }
             })
             }
-            <div style={{borderStyle: "solid", borderColor: "#2062a7", borderRadius: 10, borderWidth: 1, width: 704, height: 17, position: "absolute", left: "50%", bottom: 20, marginLeft: -352, zIndex: 10000}}>
-                <div style={{backgroundColor: "#dee0e5", borderRadius: 10, width: 153, height: 15, display: "flex", justifyContent: "center", alignItems: "center"}}>
-                    <span style={{color: "#2062a7", fontSize: 15}}>18%</span>
+            <div className="progress-text">
+                <div className="gre">GRE</div>
+                <div className="smallgre">Your Progress</div>
+                <div className="progress">
+                    <div className="bar">
+                        <span style={{color: "#2062a7", fontSize: 15, fontFamily:"Helvetica"}}>28%</span>
+                    </div>
                 </div>
             </div>
-            <div style={{display: "flex", flexDirection: "row", alignItems: "center", position: "absolute", top: 30, right: 70, zIndex: 10000}}>
+            {/* <div style={{display: "flex", flexDirection: "row", alignItems: "center", position: "absolute", top: 30, right: 70, zIndex: 10000}}>
                 <span style={{color: "#206ea7", fontSize: 25, fontWeight: "bold", paddingTop: 0, paddingRight:20, paddingBottom: 0, paddingLeft: 20}}>Memorize</span>
                 <img src={IMGS.IMG_BRAIN} style={{width: 54, height: 60}} alt="Null"/>
-            </div>
+            </div> */}
             <div>
-                <button type="button" onClick={()=>this.zoomIn()} style={{width: 60, height: 60, backgroundColor: "#e4e4e4", borderRadius: 10, position: "absolute", right: 70, top: "50%", marginTop: -80, zIndex: 10000, cursor: this.state.hoverButton?'hand':'pointer'}}
+                <button type="button" onClick={()=>this.zoomIn()} style={{width: 61, height: 59, backgroundColor: "#f4f4f4", outline:"none", border:"none", borderRadius: 10, position: "absolute", right: 70, top: "50%", marginTop: -80, zIndex: 10000, cursor: this.state.hoverButton?'hand':'pointer'}}
                     onMouseEnter={this.onMouseEnterItem}
                     onMouseLeave={this.onMouseLeaveItem}
                 >
                     <img src={IMGS.IMG_ZOOMIN} style={{width: 37, height: 37}} alt="Null"/>
                 </button>
-                <button type="button" onClick={() => this.zoomOut()} style={{width: 60, height: 60, backgroundColor: "#e4e4e4", borderRadius: 10, position: "absolute", right: 70, top: "50%", marginBottom: -10, zIndex: 10000, cursor: this.state.hoverButton?'hand':'pointer'}}
+                <button type="button" onClick={() => this.zoomOut()} style={{width: 61, height: 59, backgroundColor: "#f4f4f4", outline:"none", border:"none", borderRadius: 10, position: "absolute", right: 70, top: "50%", marginBottom: -10, zIndex: 10000, cursor: this.state.hoverButton?'hand':'pointer'}}
                     onMouseEnter={this.onMouseEnterItem}
                     onMouseLeave={this.onMouseLeaveItem}          
                 >
-                    <img src={IMGS.IMG_ZOOMOUT} style={{width: 37, height: 2}} alt="Null"/>
+                    <img src={IMGS.IMG_ZOOMOUT} style={{width: 37, height: 2, paddingBottom:3}} alt="Null"/>
                 </button>
             </div>
             {
