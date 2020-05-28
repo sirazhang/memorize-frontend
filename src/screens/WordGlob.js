@@ -237,6 +237,7 @@ class WordGlob extends Component {
         this.drawWordGlobe();
         window.addEventListener("resize", this.onWindowResize);
         window.addEventListener("mouseup", this.onHideDlg);
+        window.addEventListener("mousewheel", this.onPreventZoomPage, { passive: false });
         this.closeHandler = (ev) => 
         {  
             ev.preventDefault();
@@ -269,6 +270,8 @@ class WordGlob extends Component {
         this.mount.removeChild(this.renderer.domElement);
         window.removeEventListener('mouseup', this.onHideDlg);
         window.removeEventListener('resize', this.onWindowResize);
+        window.removeEventListener("mousewheel", this.onPreventZoomPage);
+
         //window.removeEventListener('beforeunload', this.closeHandler);
         //window.removeEventListener('unload', this.closeEvent);
     }
@@ -283,11 +286,15 @@ class WordGlob extends Component {
     }
 
     onHideDlg = (event) => {
-        console.log(event.target.id);
+        //console.log(event.target.id);
         if(event.target.id.includes("review")) return;
         this.setState({showReviewDlg:false})
     }
 
+    onPreventZoomPage = (event) => {
+        console.log("Mouse wheeling");
+        event.preventDefault();
+    }
     initializeOrbits() {
         this.controls.rotateSpeed = 1.0;
         this.controls.zoomSpeed = 1.2;
@@ -344,7 +351,7 @@ class WordGlob extends Component {
         result.y = Math.round((0 - vector.y) * (height / 2)) + height / 2;
         
         return result;
-    }	
+    }
     
     onMouseEnterItem = () => {
         this.setState({hoverButton: true});

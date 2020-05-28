@@ -28,7 +28,12 @@ class Header extends Component{
         localStorage.removeItem("user-memorize-token");
         this.setState({showProfileMenu:false});
     }
-
+    onClickToEnhance = () => {
+        this.props.history.push("/brainstorm-home")
+    }
+    onClickToLearn = () => {
+        this.props.history.push("/wordglob")
+    }
     render(){
         let {color, auth} = this.props;
         return(
@@ -44,8 +49,8 @@ class Header extends Component{
                 {
                     auth &&
                     <div className={color==="white"?"menus-white":"menus-blue"}>
-                        <div className="nav-item">To Learn</div>
-                        <div className="nav-item">To Enhance</div>
+                        <div className="nav-item" onClick={this.onClickToLearn}>To Learn</div>
+                        <div className="nav-item" onClick={this.onClickToEnhance}>To Enhance</div>
                         <div style={{display:"flex", flexDirection:"column"}}>
                             <div className="nav-item" style={{marginRight:0}} onClick={() => {this.setState({showProfileMenu:true})}}>My Profile</div> 
                             {

@@ -112,3 +112,79 @@
 .header-container .menus-blue .profile-menu .menu-item:hover{
     background-color: #739dd6;
 }
+
+/* card */
+.card-container label {
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    display: block;
+    width: 100%;
+    height: 198px;
+
+    cursor: pointer;
+}
+
+.card-container .card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;
+}
+
+.card-container  .card div {
+    position: absolute;
+    /* margin: 13px 50px 13px 0px; */
+    height: 192px;
+    -webkit-border-radius: 37px;
+    -moz-border-radius: 37px;
+    border-radius: 37px;
+    border: 3px solid #ffffff;
+    display: flex;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 45px;
+    font-weight: bold;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card-container .card .back {
+    border: none;
+    background: #e2e2e288;
+    color: #FFF;
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+}
+
+.card-container  label:hover .card {
+    -webkit-transform: rotateX(20deg);
+    transform: rotateX(20deg);
+    
+    box-shadow: 0 20px 20px rgba(50,50,50,.2);
+}
+
+.card-container input {
+    display: none;
+}
+
+.card-container :checked + .card {
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+}
+
+.card-container label:hover :checked + .card {
+    transform: rotateX(160deg);
+    -webkit-transform: rotateX(160deg);
+    /* box-shadow: 0 20px 20px rgba(255,255,255,.2); */
+}
+

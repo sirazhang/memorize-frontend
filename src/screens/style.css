@@ -731,3 +731,187 @@
     justify-content: center;
     align-items: center;
 }
+
+/* BrainStormHome Screen */
+.bsh-container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/images/bg-brainstorm-letters.png');
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bsh-container .bsh-portfolio {
+    width: 308px;
+    height: 351px;
+    border-radius: 25px;
+    filter: drop-shadow(0px 3px 3.5px rgba(0,0,0,0.16));
+    background-color: #ffffff;
+    margin: 153px 50px;
+}
+
+.bsh-container .bsh-portfolio .bsh-avatar {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+.bsh-container .bsh-portfolio .bsh-avatar img{
+    width: 114px;
+    height: 114px;
+    border-radius: 57px;
+}
+
+.bsh-container .bsh-portfolio .bsh-pf-content {
+    padding: 15px 40px;
+}
+
+.bsh-container .bsh-wdgames {
+    width: 233px;
+    height: 169px;
+    border-radius: 32px;
+    filter: drop-shadow(3.993px 3.009px 3.5px rgba(0,0,0,0.16));
+    background-color: #ffffff;
+    margin: 292px 50px;
+}
+
+.bsh-container .bsh-wdgames .title{
+    font-family: Helvetica;
+    font-size: 21px;
+    font-weight: bold;
+    color: #575E62;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.bsh-container .bsh-wdgames .btn-brainstorm{
+    font-family: Helvetica;
+    font-size: 30px;
+    font-weight: bold;
+    color: #3f81b3;
+    text-align: center;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.bsh-container .bsh-wdgames .btn-brainstorm:hover{
+    color: #3f81b3c4;
+}
+
+.bsh-container .bsh-wdgames .btn-brainstorm:active{
+    color: #206ea7;
+}
+
+/* BrainStormStart Screen */
+.bss-container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/images/bg-brainstorm-noletters.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bss-container .btn-back{
+    display: flex;
+    align-items: center;
+    font-family: Helvetica;
+    font-size: 25px;
+    font-weight: bold;
+    color:#ffffff;
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    cursor: pointer;
+}
+
+.bss-container .btn-back img{
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+.bss-container .btn-back:hover{
+    color: #ffffffaa;
+}
+
+.bss-container .btn-back:active{
+    color: #ffffff;
+}
+
+.bss-container .bss-title{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Helvetica;
+    text-align: center;
+    color: #FCFCB5;
+}
+
+.bss-container .bss-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.bss-container .bss-content .bss-ctn-left {
+    display: flex;    
+    flex-direction: column;
+    width: 33%;
+    margin-left: 2%;
+}
+
+.bss-container .bss-content .bss-ctn-left .bss-card{
+    margin: 13px 0px 13px 50px;
+    height: 192px;
+    border-radius: 37px;
+    border: 3px solid #ffffff;
+    display: flex;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.bss-container .bss-content .bss-ctn-center {
+    display: flex;    
+    flex-direction: column;
+    width: 33%;
+    display: flex;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+.bss-container .bss-content .bss-ctn-right {
+    display: flex;    
+    flex-direction: column;
+    width: 33%;
+    margin-right: 2%;
+}
+
+.bss-container .bss-content .bss-ctn-right .bss-card{
+    margin: 13px 50px 13px 0px;
+    height: 192px;
+    border-radius: 37px;
+    border: 3px solid #ffffff;
+    display: flex;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Helvetica;
+    font-size: 45px;
+    font-weight: bold;
+}
