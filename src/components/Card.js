@@ -7,9 +7,9 @@ class Card extends Component{
             <div className="card-container">
                 <label>
                     <input type="checkbox"/>
-                    <div class="card">
-                        <div class="front">circumspect</div>
-                        <div class="back"></div>
+                    <div className="card">
+                        <div className="front">circumspect</div>
+                        <div className="back"></div>
                     </div>
                 </label>
             </div>

@@ -19,7 +19,10 @@ export default (state=initialState, action) => {
 
         case ActionTypes.LOGIN_FAILED:
             return {id:'', token:'', msg:'Login Started', loginState: -1};
-        
+        case ActionTypes.LOGOUT:
+            localStorage.removeItem("user-memorize-token")
+            window.location.reload()
+            return state;
         default:
             return state;
     }

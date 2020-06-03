@@ -110,6 +110,7 @@ class Home extends Component{
     componentDidMount(){
         // If user is already logged in then redirect to word glob screen
         if(UTILS.checkJWTValidate()){
+            console.log("Home-User Logged in-Go to wordGlob")
             this.props.history.push("/wordglob");
             return;
         }

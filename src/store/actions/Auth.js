@@ -29,6 +29,12 @@ const LoginFailed = (msg) => {
     }
 }
 
+const LogoutUser = () => {
+    return{
+        type: ActionTypes.LOGOUT
+    }
+}
+
 const Login = (email, password) => {
     return (dispatch) => {
         dispatch(LoginStart());
@@ -53,6 +59,13 @@ const Login = (email, password) => {
     }
 }
 
+const Logout = () => {
+    return (dispatch) => {
+        dispatch(LogoutUser());
+    }
+}
+
 export default {
-    Login
+    Login,
+    Logout
 }

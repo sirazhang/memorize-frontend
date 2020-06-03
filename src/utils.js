@@ -15,3 +15,6 @@ export function checkJWTValidate() {
     return chk;
 }
 
+export function getRandomDouble(mini, maxm){
+    return Math.random()*(maxm-mini)+mini;
+}
