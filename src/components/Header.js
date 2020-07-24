@@ -2,6 +2,24 @@ import React, {Component} from 'react';
 import './style.css';
 
 import * as IMGS from '../common/images';
+/** Redux Begin */
+import GuideActions from '../store/actions/Guide';
+
+import {connect} from 'react-redux';
+
+const mapStateToProps = (state) => {
+    return {
+        guideShow: state.guide
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return{
+        guideShow: () => dispatch(GuideActions.GuideScreenShow()),
+        guideHide: () => dispatch(GuideActions.GuideScreenHide())
+    }
+}
+/** Redux End */
 
 class Header extends Component{
     constructor(props){
@@ -34,6 +52,15 @@ class Header extends Component{
     onClickToLearn = () => {
         this.props.history.push("/wordglob")
     }
+    onClickToReview = () => {
+        this.props.history.push("/review")
+    }
+    onClickToProfile = () => {
+        this.props.history.push("/profile")
+    }
+    onClickHelp = () => {
+        this.props.guideShow()
+    }
     render(){
         let {color, auth} = this.props;
         return(
@@ -56,9 +83,10 @@ class Header extends Component{
                             {
                                 this.state.showProfileMenu&&
                                 <div className="profile-menu">
-                                    <div className="menu-item" id="menu-id-1">Review</div>
-                                    <div className="menu-item" id="menu-id-2">Account</div>
-                                    <a className="menu-item" id="menu-id-3" href="/" onClick={this.onClickSignOut}>Sign out</a>
+                                    <div className="menu-item" id="menu-id-1" onClick={this.onClickToReview}>Review</div>
+                                    <div className="menu-item" id="menu-id-2" onClick={this.onClickToProfile}>Account</div>
+                                    <div className="menu-item" id="menu-id-3" onClick={this.onClickHelp}>Help</div>
+                                    <a className="menu-item" id="menu-id-4" href="/" onClick={this.onClickSignOut}>Sign out</a>
                                 </div>
                             }
                         </div>
@@ -70,4 +98,4 @@ class Header extends Component{
     }
 }
 
-export default Header
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

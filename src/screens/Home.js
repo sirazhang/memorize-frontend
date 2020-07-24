@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Header from '../components/Header';
+import Loading1 from '../components/Loading1';
 import * as IMGS from '../common/images';
 import * as UTILS from '../utils';
 
@@ -110,7 +111,7 @@ class Home extends Component{
     componentDidMount(){
         // If user is already logged in then redirect to word glob screen
         if(UTILS.checkJWTValidate()){
-            console.log("Home-User Logged in-Go to wordGlob")
+            //console.log("Home-User Logged in-Go to wordGlob")
             this.props.history.push("/wordglob");
             return;
         }
@@ -149,8 +150,8 @@ class Home extends Component{
                 <div className="home-body">
                     <div className="home-signpan">
                         <div className="home-signpan-des-title">MEMORIZE  IS  FOCUSING  ON</div>
-                        <div className="home-signpan-des-content">Revolutionizing English vocabulary</div>
-                        <div className="home-signpan-des-content">learning for a new generation</div>
+                        <div className="home-signpan-des-content">Revolutionizing English vocabulary learning for a new generation</div>
+                        {/* <div className="home-signpan-des-content"></div> */}
                         <div className="home-signbtns">
                             <button className="home-signfreebtn"
                                 onClick={this.onClickSignUpFree}
@@ -166,12 +167,12 @@ class Home extends Component{
                     <div className="home-followus">
                         <div className="home-followus-title">Follow us</div>
                         <div className="home-followus-icons">
-                            <img src={IMGS.IMG_ICON_INSTAGRAM} style={{width:25, height:25, marginRight:20}} alt="Null"/>
-                            <img src={IMGS.IMG_ICON_FACEBOOK} style={{width:13, height:25, marginRight:20}} alt="Null"/>
+                            <img src={IMGS.IMG_ICON_INSTAGRAM} style={{width:13, height:13, marginRight:5}} alt="Null"/>
+                            <img src={IMGS.IMG_ICON_FACEBOOK} style={{width:7, height:13, marginRight:5}} alt="Null"/>
                             <span>memor_ize 2020</span>
                         </div>
                         <div className="home-followus-icons">
-                            <img src={IMGS.IMG_ICON_TWITTER} style={{width:25, height:25, marginRight:20}} alt="Null"/>
+                            <img src={IMGS.IMG_ICON_TWITTER} style={{width:13, height:13, marginRight:5}} alt="Null"/>
                             <span>@Memorize41986293</span>
                         </div>
                     </div>
@@ -255,7 +256,14 @@ class Home extends Component{
                                     {loginState === -1 && "Sorry!  Please check the E-mail and Password again"}
                                 </div>
                                 <button className="button-submit" id="home-signin-18" onClick={this.onClickConfirmSignin}>
-                                    Confirm
+                                {
+                                    loginState === 0 &&
+                                    <img id="home-signup-19" src={IMGS.IMG_LOADING} style={{width:32, height:32, marginTop:5}} alt="Null"/>
+                                }
+                                {
+                                    loginState !== 0 &&
+                                    <span id="home-signup-20">Confirm</span>
+                                }
                                 </button>
                                 <button className="button-free-signup" id="home-signin-21" onClick={this.onClickSignUpFree}>
                                     Sign up for free
@@ -263,6 +271,14 @@ class Home extends Component{
                             </div>
                         </div>
                     </div>
+                }
+                {
+                    loginState === 0 &&
+                    <Loading1 />
+                }
+                {
+                    this.props.registerState.registerState === 0 &&
+                    <Loading1 />
                 }
                 {
                     openResetPasswd &&
@@ -305,6 +321,7 @@ class Home extends Component{
                 {
                     openTermsCondit &&
                     <div className="home-terms-modal" id="home-terms-00">
+                        <div style={{fontSize:21, fontFamily:"Helvetica", fontWeight:"bold", color: "#2062A7", marginTop:50, marginLeft:50}}>User notice</div>
                         <div className="terms-content" id="home-terms-01">
                             Memorize does not sell your data to others or use it for advertising. We will never read or access your private notes without written or verbal consent - unless compelled by law enforcement.
                             Please read these Terms and Conditions (“Terms” or “Terms and Conditions”) carefully before using the Memorize website. For purposes of these Terms, “you” and “your” means you as the user of the Service.<br/>

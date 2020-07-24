@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import Carousel from 'nuka-carousel'
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 import '../styles.css';
 import * as IMGS from '../common/images';
 import {RADIUS_LINE} from '../common/consts'
 import * as COLORS from '../common/colors'
+//import * as UTILS from '../utils';
+
 //import WordData from '../assets/data/words.json'
 //import LatLon1 from '../assets/data/latlon1.json'
 import Header from "../components/Header";
@@ -14,12 +17,20 @@ import WordDataActions from '../store/actions/WordData';
 import LatitudeActions from '../store/actions/Latitude';
 import LongitudeActions from '../store/actions/Longitude';
 import AuthActions from '../store/actions/Auth';
+import ReviewActions from '../store/actions/Review';
+import GREMapActions from '../store/actions/GREMap';
+import GuideActions from '../store/actions/Guide';
+
 import {connect} from 'react-redux';
 const mapStateToProps = (state) => {
     return {
         wordState: state.word_data,
         latitudeState: state.latitude,
         longitudeState: state.longitude,
+        reviewState: state.review,
+        userStudy: state.userstudy,
+        greState: state.gremap,
+        guideState: state.guide
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -27,7 +38,15 @@ const mapDispatchToProps = (dispatch) => {
         wordDataGet: (lat_min, lat_max, lon_min, lon_max) => dispatch(WordDataActions.WordDataGet(lat_min, lat_max, lon_min, lon_max)),
         latitudeGet: () => dispatch(LatitudeActions.LatitudeGet()),
         longitudeGet: () => dispatch(LongitudeActions.LongitudeGet()),
-        logout: () => dispatch(AuthActions.Logout())
+        logout: () => dispatch(AuthActions.Logout()),
+        getWordDataByPage: (pageNumber, pageSize, searchValue) => dispatch(ReviewActions.Get_WordData_ByPage(pageNumber, pageSize, searchValue)),
+        saveUserStudy: (wordId, studyStatus, pageNumber, pageSize, searchValue) => dispatch(ReviewActions.Save_UserStudy(wordId, studyStatus, pageNumber, pageSize, searchValue)),
+        seleclistUserStudy: (reviewed) => dispatch(ReviewActions.SelectList_UserStudy(reviewed)),
+        greWordDataGet: (i_Nth) => dispatch(GREMapActions.GREWordDataGet(i_Nth)),
+        greLatDataGet: (i_Nth) => dispatch(GREMapActions.GRELatitudeGet(i_Nth)),
+        greLonDataGet: (i_Nth) => dispatch(GREMapActions.GRELongitudeGet(i_Nth)),
+        guideShow: () => dispatch(GuideActions.GuideScreenShow()),
+        guideHide: () => dispatch(GuideActions.GuideScreenHide())
     }
 }
 /** Redux End */
@@ -128,12 +147,12 @@ class WordGlob extends Component {
         this.drawWordGlobe = this.drawWordGlobe.bind(this);
 
         this.state = {
-            words: null,//WordData.words,
+            words: [],//WordData.words,
             wordsRnd: null,
             wordsRndLat: null,
             wordsRndLon: null,
-            latLabels: null,//LatLon1.lat,
-            lonLabels: null,//LatLon1.lon,
+            latLabels: [],//LatLon1.lat,
+            lonLabels: [],//LatLon1.lon,
             isLoading: true,
             zoomLevel: 1,
             showReviewDlg: false,
@@ -142,6 +161,32 @@ class WordGlob extends Component {
             hoverButton: false,
             selectedWord: null,
             selectedWordIndex: null,
+            i_Nth: 0,
+            staticLatCnt: 84,
+            guideImgs:[
+                IMGS.IMG_GUIDE_WORDGLOB_1,
+                IMGS.IMG_GUIDE_WORDGLOB_2,
+                IMGS.IMG_GUIDE_WORDGLOB_3,
+                IMGS.IMG_GUIDE_WORDGLOB_4,
+                IMGS.IMG_GUIDE_WORDGLOB_5,
+                IMGS.IMG_GUIDE_WORDGLOB_6,
+                IMGS.IMG_GUIDE_WORDGLOB_7,
+                IMGS.IMG_GUIDE_WORDGLOB_8,
+                IMGS.IMG_GUIDE_WORDGLOB_9,
+                IMGS.IMG_GUIDE_WORDGLOB_10,
+            ],
+            guideDesc:[
+                "Half Known Words \n Half Unknown Words",
+                "Click THE Word\n For Meaning",
+                "The KNOWN Word REFLECT IN THE PROCESS BAR",
+                "The UNKNOWN Word\n WILL SHOW MORE DETAIL MEANING",
+                "Back for previous page",
+                "Click\n Zoom In +",
+                "The Word Separate Into Two Parts \n circumspect = circum+spect",
+                "Words With The Same Root\n describe - circumscribe",
+                "Words With The Same Prefix\n circumspect - circumscribe",
+                "Words With The Same Meaning\n circumspect= scruple"
+            ]
         }
     }
 
@@ -165,25 +210,32 @@ class WordGlob extends Component {
         })
         this.controls.enablePan = false;
         this.controls.enableZoom = false;
+        //this.controls.maxPolarAngle = Math.PI* 7/8.5;
+        //this.controls.minPolarAngle = Math.PI*1.5/8.5;    
         this.renderer.setSize(width, height);
-        
-        this.mount.appendChild(this.renderer.domElement);
-        
+                
         this.initializeOrbits();
         this.initializeCamera();
         this.initializeLight();
 
-        const geometry = new THREE.SphereGeometry( 100, 40, 40 );
-        const texture = new THREE.TextureLoader().load(IMGS.IMG_TEXTURE);
-        const material = new THREE.MeshPhongMaterial({ map: texture });
-        const sphere = new THREE.Mesh( geometry, material ); 
         this.objects = new THREE.Object3D();
         this.scene.add( this.objects );
-        this.objects.add(sphere);
-        this.lineMaterialCont = new THREE.LineBasicMaterial( { color : COLORS.COLOR_LATLON, linewidth: 1, linecap: 'round', linejoin:  'round' } );
-        this.lineMaterialDash = new THREE.LineDashedMaterial( { color: COLORS.COLOR_LATLON, linewidth: 5, scale: 1, dashSize: 1, gapSize: 1, } );
-        this.drawLatLon(this.lineMaterialDash);
-        this.animate();
+
+        const geometry = new THREE.SphereGeometry( 100, 40, 40 );
+
+        new THREE.TextureLoader().load(this.textureSrc, (txtr) => {
+            const material = new THREE.MeshPhongMaterial({ map: txtr });
+            const sphere = new THREE.Mesh( geometry, material ); 
+    
+            this.objects.add(sphere);
+            this.lineMaterialCont = new THREE.LineBasicMaterial( { color : COLORS.COLOR_LATLON, linewidth: 1, linecap: 'round', linejoin:  'round' } );
+            this.lineMaterialDash = new THREE.LineDashedMaterial( { color: COLORS.COLOR_LATLON, linewidth: 5, scale: 1, dashSize: 0.5, gapSize: 1.5, } );
+            this.mount.appendChild(this.renderer.domElement);
+            this.drawLatLon(this.lineMaterialDash);
+            this.animate();    
+        }, (err) => {
+            console.log(err);
+        });
     }
 
     drawLatLon(lineMaterial, zl){
@@ -199,52 +251,78 @@ class WordGlob extends Component {
         false,
         0
         );		
-        
         var points = curve.getPoints( 50 );
         var geometry = new THREE.BufferGeometry().setFromPoints( points );
         var circle_template = new THREE.Line( geometry, this.lineMaterial );
         circle_template.computeLineDistances();
         var i, circle, radScale;
+        //var cntLat = this.state.latLabels.length
+        var cntLon = this.state.lonLabels.length
+
         if(zl === 2){
-            for (i = 0; i < 36; i ++) {
+            this.controls.maxPolarAngle = Math.PI* 7.3/8.5;
+            this.controls.minPolarAngle = Math.PI*1.2/8.5;    
+            for (i = 0; i < cntLon/2; i ++) {
                 circle = circle_template.clone();
-                circle.rotateOnAxis(new THREE.Vector3(0, 1, 0), i * Math.PI / 18);
+                circle.rotateOnAxis(new THREE.Vector3(0, 1, 0), i * Math.PI / (cntLon/4));
                 latlon.add(circle);
             }
-        
-            for (i = 0; i < 18; i ++) {
+            
+            // for (i = 0; i < cntLat/2; i ++) { 
+            //     circle = circle_template.clone();
+            //     circle.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 2);
+            
+            //     radScale = Math.cos((i - (cntLat/4)) * Math.PI / (cntLat/2));
+            //     circle.scale.set(radScale, radScale, radScale);
+            //     circle.translateZ(100 * Math.sin((i - (cntLat/4)) * Math.PI / (cntLat/2)));
+            //     latlon.add(circle);
+            // }    
+
+            for (i = 0; i < this.state.staticLatCnt/2; i ++) { 
                 circle = circle_template.clone();
                 circle.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 2);
             
-                radScale = Math.cos((i - 9) * Math.PI / 18);
+                radScale = Math.cos((i - (this.state.staticLatCnt/4)) * Math.PI / (this.state.staticLatCnt/2));
                 circle.scale.set(radScale, radScale, radScale);
-                circle.translateZ(100 * Math.sin((i - 9) * Math.PI / 18));
+                circle.translateZ(100 * Math.sin((i - (this.state.staticLatCnt/4)) * Math.PI / (this.state.staticLatCnt/2)));
                 latlon.add(circle);
             }    
         }
         if(zl === 3){
-            for (i = 0; i < 72; i ++) {
+            this.controls.maxPolarAngle = Math.PI* 15.5/17;
+            this.controls.minPolarAngle = Math.PI*2/17;    
+            for (i = 0; i < cntLon; i ++) {
                 circle = circle_template.clone();
-                circle.rotateOnAxis(new THREE.Vector3(0, 1, 0), i * Math.PI / 36);
+                circle.rotateOnAxis(new THREE.Vector3(0, 1, 0), i * Math.PI / (cntLon/2));
                 latlon.add(circle);
             }
         
-            for (i = 0; i < 36; i ++) {
+            // for (i = 0; i < cntLat; i ++) {
+            //     circle = circle_template.clone();
+            //     circle.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 2);
+            
+            //     radScale = Math.cos((i - cntLat/2) * Math.PI / cntLat);
+            //     circle.scale.set(radScale, radScale, radScale);
+            //     circle.translateZ(100 * Math.sin((i - cntLat/2) * Math.PI / cntLat));
+            //     latlon.add(circle);
+            // }    
+
+            for (i = 0; i < this.state.staticLatCnt; i ++) {
                 circle = circle_template.clone();
                 circle.rotateOnAxis(new THREE.Vector3(1, 0, 0), Math.PI / 2);
             
-                radScale = Math.cos((i - 18) * Math.PI / 36);
+                radScale = Math.cos((i - this.state.staticLatCnt/2) * Math.PI / this.state.staticLatCnt);
                 circle.scale.set(radScale, radScale, radScale);
-                circle.translateZ(100 * Math.sin((i - 18) * Math.PI / 36));
+                circle.translateZ(100 * Math.sin((i - this.state.staticLatCnt/2) * Math.PI / this.state.staticLatCnt));
                 latlon.add(circle);
-            }    
+            }  
         }
         latlon.name = "latlon"
         this.objects.add(latlon)
     }
 
     zoomIn(){
-        console.log(this.state.zoomLevel);
+        //console.log(this.state.zoomLevel);
         if(this.state.zoomLevel === 3) return;
         this.intervalZoom = setInterval(()=> {
             this.camera.scale.z += 0.1
@@ -259,7 +337,7 @@ class WordGlob extends Component {
                 this.camera.scale.z = 4.2;
             }
             if(this.state.zoomLevel === 2){
-                this.camera.scale.z = 7.2;
+                this.camera.scale.z = 7.2;     
             }
             this.setState({zoomLevel: this.state.zoomLevel+1})
             clearInterval(this.intervalZoom);
@@ -269,7 +347,7 @@ class WordGlob extends Component {
 
     zoomOut(){
         //if(this.camera.scale.z < 3) return;
-        console.log(this.state.zoomLevel);
+        //console.log(this.state.zoomLevel);
         if(this.state.zoomLevel === 1) return;
         this.intervalZoom = setInterval(()=> {
             this.camera.scale.z -= 0.1
@@ -294,21 +372,21 @@ class WordGlob extends Component {
     }
 
     async componentDidMount() {
-        this.drawWordGlobe();
+        this.props.guideShow()
         window.addEventListener("resize", this.onWindowResize);
         window.addEventListener("mouseup", this.onHideDlg);
         window.addEventListener("mousewheel", this.onPreventZoomPage, { passive: false });
         this.closeHandler = (ev) => 
         {   
             ev.preventDefault();
-            console.log("test");
+            //console.log("test");
             return ev.returnValue = 'Are you sure you want to close?';
         }
         this.closeEvent = (ev) => {
             ev.preventDefault();
             function sleep(delay) {
                 const start = new Date().getTime();
-                console.log("unload")
+                //console.log("unload")
                 while (new Date().getTime() < start + delay);
             }
         
@@ -323,6 +401,7 @@ class WordGlob extends Component {
         //window.addEventListener("beforeunload", this.closeHandler)
         //window.addEventListener("unload", this.closeEvent)
         this.setState({isLoading: true});
+        /*
         await this.props.latitudeGet();
         await this.props.longitudeGet();
         this.setState({
@@ -335,12 +414,64 @@ class WordGlob extends Component {
             this.props.longitudeState.longitudes[0].id, 
             this.props.longitudeState.longitudes[71].id+1
         );
+        await this.props.getWordDataByPage(1, 6, "");
+        await this.props.seleclistUserStudy(1)
         this.setState({
             words: this.props.wordState.wordData,
             wordsRnd: this.props.wordState.wordDataRnd,
             wordsRndLat: this.props.wordState.wordDataRndLat,
             wordsRndLon: this.props.wordState.wordDataRndLon
         })
+        */
+       var i_Nth = Math.floor(Math.random() * 8 + 1);
+        var i_NthLat, i_NthLon;
+
+        this.textureSrc = IMGS.IMG_TEXTURE
+
+        switch(i_Nth){
+            case 1:
+                i_NthLat = 1; i_NthLon = 1 ;
+                this.textureSrc = IMGS.IMG_MAP_1;
+                break;
+            case 2:
+                i_NthLat = 1; i_NthLon = 2;
+                this.textureSrc = IMGS.IMG_MAP_2;
+                break;
+            case 3:
+                i_NthLat = 1; i_NthLon = 3;
+                break;
+            case 4:
+                i_NthLat = 1; i_NthLon = 4;
+                break;
+            case 5:
+                i_NthLat = 2; i_NthLon = 1;
+                this.textureSrc = IMGS.IMG_MAP_5;
+                break;
+            case 6:
+                i_NthLat = 2; i_NthLon = 2;
+                this.textureSrc = IMGS.IMG_MAP_6;
+                break;
+            case 7:
+                i_NthLat = 2; i_NthLon = 3;
+                break;
+            case 8:
+                i_NthLat = 2; i_NthLon = 4;
+                break;
+            default:
+                i_NthLat = 1; i_NthLon = 1;
+                break;
+        }
+        //console.log(i_Nth, i_NthLat, i_NthLon);
+        await this.props.greWordDataGet(i_Nth);
+        await this.props.greLatDataGet(i_NthLat);
+        await this.props.greLonDataGet(i_NthLon);
+        this.setState({
+            latLabels: this.props.greState.greLatitude,
+            lonLabels: this.props.greState.greLongitude,
+            words: this.props.greState.greWordData,
+            i_Nth: this.i_Nth
+        })
+        this.drawWordGlobe();
         this.setState({isLoading: false})
     }
 
@@ -390,7 +521,7 @@ class WordGlob extends Component {
     }
 
     initializeLight(){
-        this.scene.add( new THREE.AmbientLight( 0xeeeeee ) );				
+        this.scene.add( new THREE.AmbientLight( 0xeeeeee ) );
 
         this.light1 = new THREE.SpotLight( 0x222222, 1.0 );
         this.light1.position.x = 730; 
@@ -440,20 +571,71 @@ class WordGlob extends Component {
         this.setState({hoverButton: false});
     }
 
-    onClickKnown = () => {
+    onClickKnown = async () => {
+        await this.props.saveUserStudy(this.state.selectedWord.id, 1, 1, 6, "");
         this.setState({showReviewDlg:false})
+    }
+
+    onClickUnKnown = async () => {
+        await this.props.saveUserStudy(this.state.selectedWord.id, 2, 1, 6, "");
+        this.setState({showReviewDlg:false, showDetailDlg:true})
     }
 
     render() {
         let {wordState, logout} = this.props
+        let {guideShow} = this.props.guideState
+        let {totalRowCount} = this.props.reviewState
+        let {data} = this.props.userStudy
         if(wordState.getState === -2){
             logout();
         }
         return (
         <div>
             <Header color="#206ea7" auth={true} history={this.props.history}/>
+            {guideShow && 
+                    <div className="guide-container">
+                    <Carousel
+                        withoutControls={false}
+                        transitionMode={"scroll3d"}
+                        horizontal
+                        cellAlign={"center"}
+                        
+                        slidesToShow={1}
+                        slidesToScroll={"auto"}
+                        wrapAround={false}
+                        slideIndex={0}
+                        heightMode={"max"}
+                        animation={"zoom"}
+                        zoomScale={0.85}
+                        swiping
+                        renderBottomCenterControls={({currentSlide}) => {
+                            return (
+                                <div
+                                    style={{
+                                        fontSize:22,
+                                        fontWeight:"bold",
+                                        fontFamily: "Helvetica",
+                                        color: "#fff",
+                                        textAlign:"center",
+                                        paddingBottom:50
+                                    }}
+                                >
+                                    {this.state.guideDesc[currentSlide]}
+                                </div>
+                            )}
+                        }
+                    >
+                        {this.state.guideImgs.map((gImg, index) => (
+                            <div style={{display:"flex", alignItems:"center", justifyContent:"center", height:"100vh"}} key={"guide-brainstorm-"+index}>
+                                <img src={gImg} style={{width:"80%", height:"auto"}} alt="None"/>
+                            </div>
+                        ))}
+                    </Carousel>
+                    <div className="skip-button" onClick={() => {this.props.guideHide()}}> Skip </div>
+                </div>
+                }
             <div
-                style={{ width: "100vw", height: "100vh" }}
+                style={{ width: "100vw", height: "100vh", backgroundColor:"#ffffff"}}
                 ref={mount => {
                     this.mount = mount;
                 }}
@@ -464,38 +646,74 @@ class WordGlob extends Component {
             {!this.state.isLoading&&
             this.state.words.map((word, index) => {
                 var matrix = this.objects.matrixWorld;
-                var lat, lon
+                var lat, lon, lon1; //, lat1;
+                var cntLon;//, cntLat;
+                //cntLat = this.state.latLabels.length;
+                cntLon = this.state.lonLabels.length;
+
                 if(this.state.zoomLevel === 2){
-                    lon = Math.PI * (word.location.lon/2 - 18) / 18;
-                    lat = (Math.PI / 2) * (word.location.lat/2 - 9) / 9; // + (Math.PI / 18) * word.location.delta;    
+                    lon = Math.PI * Math.floor((word.location.lon-1)/2 - cntLon/4) / (cntLon/4);
+                    lon1 = Math.PI * Math.floor((word.location.lon-1)/2 - cntLon/4+1) / (cntLon/4);
+                    lat = (Math.PI / 2) * Math.floor((word.location.lat-1+6)/2 - this.state.staticLatCnt/4) / (this.state.staticLatCnt/4); // + (Math.PI / 18) * word.location.delta;    
                 }else if(this.state.zoomLevel === 3){
-                    lon = Math.PI * (word.location.lon - 36) / 36;
-                    lat = (Math.PI / 2) * (word.location.lat - 18) / 18;// + (Math.PI / 36) * word.location.delta;    
+                    lon = Math.PI * Math.floor((word.location.lon-1) - cntLon/2) / (cntLon/2);
+                    lon1 = Math.PI * Math.floor((word.location.lon-1) - cntLon/2+1) / (cntLon/2);
+                    lat = (Math.PI / 2) * Math.floor((word.location.lat-1+6) - this.state.staticLatCnt/2) / (this.state.staticLatCnt/2);// + (Math.PI / 36) * word.location.delta;    
                 }else if(this.state.zoomLevel === 1){
-                    lon = Math.PI * (word.location.lon - 18) / 18;
-                    lat = (Math.PI / 2) * (word.location.lat - 9) / 9; // + (Math.PI / 18) * word.location.delta;
-                }
+                    lon = Math.PI * Math.floor((word.location.lon-1) - (cntLon/2)) / (cntLon/2);
+                    lon1 = Math.PI * Math.floor((word.location.lon-1) - (cntLon/2)) / (cntLon/2);
+                    lat = (Math.PI / 2) * Math.floor((word.location.lat-1+6) - (this.state.staticLatCnt/2)) / (this.state.staticLatCnt/2); // + (Math.PI / 18) * word.location.delta;
+                }    
+            
                 var rad = 100;
                 
                 var phi = lat + Math.PI / 2;
                 var theta = -lon;
+                var theta1 = -lon1
                 
                 var center = new THREE.Vector3();                
                 center.x = Math.sin(phi) * Math.cos(theta) * rad;
                 center.y = Math.cos(phi) * rad;
                 center.z = Math.sin(phi) * Math.sin(theta) * rad;
 
+                var center1 = new THREE.Vector3();                
+                center1.x = Math.sin(phi) * Math.cos(theta1) * rad;
+                center1.y = Math.cos(phi) * rad;
+                center1.z = Math.sin(phi) * Math.sin(theta1) * rad;
+
                 var abspos = center.applyMatrix4(matrix);
+                var abspos1 = center1.applyMatrix4(matrix);
+
                 var screenPos = this.screenXY(abspos);
+                var screenPos1 = this.screenXY(abspos1);
+
                 var distance = this.camera.position.distanceTo(abspos);
                 var length = this.camera.position.length()-40;
 
+                var str = word.config.prefix + word.config.root + word.config.suffix + word.config.tale;
+                var len = str.length;
+
+                var wid = Math.floor(Math.abs(screenPos.x-screenPos1.x));
+                var rate = wid/len;
+                var fontSize = rate * 1.5;
+                if(fontSize < 12){
+                    fontSize = 12;
+                }
+                if(fontSize > 25){
+                    fontSize = 25;
+                }
+                if(this.state.zoomLevel === 1){
+                    fontSize = 20;
+                }
                 if(distance < length && parseInt(word.level) <= this.state.zoomLevel) {
+                    if(this.state.zoomLevel === 2 && word.level === 1){
+                        return null;
+                    }
                     if(this.state.selectedWordIndex === index){
                         return(
                         <button id={"word-"+index} key={"word-"+index} 
-                            style={{background:"#00000000", border:"none", position:"absolute", top:screenPos.y, left: screenPos.x, cursor: this.state.hoverWord?'hand':'pointer', fontFamily:"Helvetica", fontWeight:"bold", fontSize:30}} 
-                            onClick={(e) => {console.log(word); this.setState({selectedWord:word, showReviewDlg:true})}}
+                            style={{backgroundColor:"#00000000", border:"none", position:"absolute", top:screenPos.y, left: screenPos.x, cursor: this.state.hoverWord?'hand':'pointer', fontFamily:"Helvetica", fontWeight:"bold", fontSize: fontSize}} 
+                            onClick={(e) => {/*console.log(word);*/ this.setState({selectedWord:word, showReviewDlg:true})}}
                             onMouseEnter={(e) => {this.setState({hoverWord: true})}}
                             onMouseLeave={(e) => {this.setState({hoverWord: false})}}
                         >
@@ -509,10 +727,10 @@ class WordGlob extends Component {
                     }
                     return(
                         <button id={"word-"+index} key={"word-"+index} 
-                        style={{background:"#00000000", border:"none", position:"absolute", top:screenPos.y, left: screenPos.x, cursor: this.state.hoverWord?'hand':'pointer', fontFamily:"Helvetica", fontWeight:"bold", fontSize:30}} 
-                        onClick={(e) => {console.log(word); this.setState({selectedWord:word, showReviewDlg:true, selectedWordIndex: index})}}
-                        onMouseEnter={(e) => {this.setState({hoverWord: true})}}
-                        onMouseLeave={(e) => {this.setState({hoverWord: false})}}
+                            style={{background:"#00000000", border:"none", position:"absolute", top:screenPos.y, left: screenPos.x, cursor: this.state.hoverWord?'hand':'pointer', fontFamily:"Helvetica", fontWeight:"bold", fontSize: fontSize}} 
+                            onClick={(e) => {/*console.log(word); */ this.setState({selectedWord:word, showReviewDlg:true, selectedWordIndex: index})}}
+                            onMouseEnter={(e) => {this.setState({hoverWord: true})}}
+                            onMouseLeave={(e) => {this.setState({hoverWord: false})}}
                         >
                             <span style={{color:COLORS.COLOR_ROOT}}>{word.config.prefix}</span>
                             <span style={{color:COLORS.COLOR_ROOT}}>{word.config.root}</span>
@@ -521,24 +739,22 @@ class WordGlob extends Component {
                         </button>
                     )
                 }else{
-                    return(
-                        <div key={"word-"+index}></div>
-                    );
+                    return null;
                 }
             })
             }
-            {!this.state.isLoading&&
+            {/* {!this.state.isLoading&&
             this.state.wordsRnd.map((word, index) =>{
                 var matrix = this.objects.matrixWorld;
                 var lat, lon
                 lon = 2*Math.PI * word.location.lon;
-                lat = (Math.PI) * word.location.lat;    
+                lat = (Math.PI) * word.location.lat;
                 var rad = 100;
-                
+
                 var phi = lat;
                 var theta = -lon;
                 
-                var center = new THREE.Vector3();                
+                var center = new THREE.Vector3();
                 center.x = Math.sin(phi) * Math.cos(theta) * rad;
                 center.y = Math.cos(phi) * rad;
                 center.z = Math.sin(phi) * Math.sin(theta) * rad;
@@ -584,8 +800,8 @@ class WordGlob extends Component {
                     );
                 }
             })
-            }
-            {!this.state.isLoading&&
+            } */}
+            {/* {!this.state.isLoading&&
             this.state.wordsRndLat.map((word, index) => {
                 var matrix = this.objects.matrixWorld;
                 var lat, lon
@@ -633,10 +849,10 @@ class WordGlob extends Component {
                     }
                     return(
                         <button id={"word-rnd-lat"+index} key={"word-"+index} 
-                        style={{background:"#00000000", border:"none", position:"absolute", top:screenPos.y, left: screenPos.x, cursor: this.state.hoverWord?'hand':'pointer', fontFamily:"Helvetica", fontWeight:"bold", fontSize:30}} 
-                        onClick={(e) => {console.log(word); this.setState({selectedWord:word, showReviewDlg:true, selectedWordIndex: index})}}
-                        onMouseEnter={(e) => {this.setState({hoverWord: true})}}
-                        onMouseLeave={(e) => {this.setState({hoverWord: false})}}
+                            style={{background:"#00000000", border:"none", position:"absolute", top:screenPos.y, left: screenPos.x, cursor: this.state.hoverWord?'hand':'pointer', fontFamily:"Helvetica", fontWeight:"bold", fontSize:30}} 
+                            onClick={(e) => {console.log(word); this.setState({selectedWord:word, showReviewDlg:true, selectedWordIndex: index})}}
+                            onMouseEnter={(e) => {this.setState({hoverWord: true})}}
+                            onMouseLeave={(e) => {this.setState({hoverWord: false})}}
                         >
                             <span style={{color:COLORS.COLOR_ROOT}}>{word.config.prefix}</span>
                             <span style={{color:COLORS.COLOR_ROOT}}>{word.config.root}</span>
@@ -650,8 +866,8 @@ class WordGlob extends Component {
                     );
                 }
             })
-            }
-            {!this.state.isLoading&&
+            } */}
+            {/* {!this.state.isLoading&&
             this.state.wordsRndLon.map((word, index) => {
                 var matrix = this.objects.matrixWorld;
                 var lat, lon
@@ -699,10 +915,10 @@ class WordGlob extends Component {
                     }
                     return(
                         <button id={"word-rnd-lon-"+index} key={"word-"+index} 
-                        style={{background:"#00000000", border:"none", position:"absolute", top:screenPos.y, left: screenPos.x, cursor: this.state.hoverWord?'hand':'pointer', fontFamily:"Helvetica", fontWeight:"bold", fontSize:30}} 
-                        onClick={(e) => {console.log(word); this.setState({selectedWord:word, showReviewDlg:true, selectedWordIndex: index})}}
-                        onMouseEnter={(e) => {this.setState({hoverWord: true})}}
-                        onMouseLeave={(e) => {this.setState({hoverWord: false})}}
+                            style={{background:"#00000000", border:"none", position:"absolute", top:screenPos.y, left: screenPos.x, cursor: this.state.hoverWord?'hand':'pointer', fontFamily:"Helvetica", fontWeight:"bold", fontSize:30}} 
+                            onClick={(e) => {console.log(word); this.setState({selectedWord:word, showReviewDlg:true, selectedWordIndex: index})}}
+                            onMouseEnter={(e) => {this.setState({hoverWord: true})}}
+                            onMouseLeave={(e) => {this.setState({hoverWord: false})}}
                         >
                             <span style={{color:COLORS.COLOR_ROOT}}>{word.config.prefix}</span>
                             <span style={{color:COLORS.COLOR_ROOT}}>{word.config.root}</span>
@@ -716,15 +932,22 @@ class WordGlob extends Component {
                     );
                 }
             })
-            }
+            } */}
             {!this.state.isLoading &&  
             this.state.latLabels.map((value, index) => {
                 var lat;
+                //var cntLat = this.state.latLabels.length;
+                // if(this.state.zoomLevel === 2){
+                //     if(index % 2 === 0) return <div key={"lat-empty-"+index}></div>
+                //     lat = (Math.PI / 2) * (Math.floor(index/2) - (cntLat/4)) / (cntLat/4);
+                // }else if(this.state.zoomLevel === 3){
+                //     lat = (Math.PI / 2) * (index - (cntLat/2)) / (cntLat/2);
+                // }
                 if(this.state.zoomLevel === 2){
-                    if(index % 2 === 1) return <div key={"lat-empty-"+index}></div>
-                    lat = (Math.PI / 2) * (Math.floor(index/2) - 9) / 9;
+                    if((index) % 2 === 0) return <div key={"lat-empty-"+(index+6)}></div>
+                    lat = (Math.PI / 2) * (Math.floor((index+6)/2) - (this.state.staticLatCnt/4)) / (this.state.staticLatCnt/4);
                 }else if(this.state.zoomLevel === 3){
-                    lat = (Math.PI / 2) * (index - 18) / 18;
+                    lat = (Math.PI / 2) * ((index+6) - (this.state.staticLatCnt/2)) / (this.state.staticLatCnt/2);
                 }
                 var matrix = this.objects.matrixWorld;
                 var rad = 100;
@@ -746,55 +969,83 @@ class WordGlob extends Component {
                 if(distance < length && this.camera.scale.z > 3) {
                     return(
                         <button id={"lat-"+index} key={"lat-"+index} style={{ background:"#00000000", border:"none", position:"absolute", top:screenPos.y, left: screenPos.x, display:'flex', flexDirection:'column', transform:"translate(0px, -50%)"}}>
-                        <span style={{fontFamily:"Helvetica", fontWeight:"bold", color:COLORS.COLOR_ROOT, fontSize: 15}}>{value.affix}</span>
-                        <span style={{fontFamily:"Helvetica", fontWeight:"bold", color:COLORS.COLOR_ROOT, fontSize: 15}}>{value.meaning}</span>
+                            <span style={{fontFamily:"Helvetica", fontWeight:"bold", color:COLORS.COLOR_ROOT, fontSize: 10}}>{value.affix}</span>
+                            <span style={{fontFamily:"Helvetica", fontWeight:"bold", color:COLORS.COLOR_ROOT, fontSize: 10}}>{value.meaning}</span>
                         </button>
                     )
                 }else{
-                    return(
-                        <div key={"lat-"+index}></div>
-                    );
+                    return null;
                 }
             })
             }
             {!this.state.isLoading && 
             this.state.lonLabels.map((value, index) => {
+                if(value.LongitudeId === 0) return null;
                 var matrix = this.objects.matrixWorld;
-                var lon;
+                var lon, lon1, theta1, center1, abspos1, screenPos1;
+                var cntLon = this.state.lonLabels.length;
                 if(this.state.zoomLevel === 2){
-                    if(index % 2 === 1) return <div key={"lon-empty-"+index}></div>
-                    lon = Math.PI * (index/2) / 18;
+                    if(index % 2 === 0) return <div key={"lon-empty-"+index}></div>
+                    lon = Math.PI * Math.floor(index/2) / (cntLon/4);
+                    lon1 = Math.PI * Math.floor((index)/2 + 1) / (cntLon/4);
                 }else if(this.state.zoomLevel === 3){
-                    lon = Math.PI * (index) / 36;
+                    lon = Math.PI * (index) / (cntLon/2);
+                    lon1 = Math.PI * Math.floor(index + 1)/ (cntLon/2);
                 }
                 //var lon = Math.PI * (index) / 18;
                 var rad = 100;
                 var spherical = new THREE.Spherical(rad, 0, 0);
                 spherical.setFromVector3(this.camera.position);
+                //console.log(this.controls.getPolarAngle());
                 var phi = -spherical.phi;
+                //console.log(phi)
                 var theta = -lon;
-                
-                var center = new THREE.Vector3();                
+                theta1 = -lon1;
+
+                var center = new THREE.Vector3();
                 center.x = Math.sin(phi) * Math.cos(theta) * rad;
                 center.y = Math.cos(phi) * rad;
                 center.z = Math.sin(phi) * Math.sin(theta) * rad;
 
+                center1 = new THREE.Vector3();                
+                center1.x = Math.sin(phi) * Math.cos(theta1) * rad;
+                center1.y = Math.cos(phi) * rad;
+                center1.z = Math.sin(phi) * Math.sin(theta1) * rad;
+
                 var abspos = center.applyMatrix4(matrix);
+                abspos1 = center1.applyMatrix4(matrix);
+
                 var screenPos = this.screenXY(abspos);
+                screenPos1 = this.screenXY(abspos1);
+
                 var distance = this.camera.position.distanceTo(abspos);
                 var length = this.camera.position.length();
+
+                var str = value.Label;
+                var len = str.length;
+
+                var wid = Math.floor(Math.abs(screenPos.x-screenPos1.x));
+                if(len === 0){
+                    len = 0.01;
+                } 
+                var rate = wid/len;
+                var fontSize = rate * 1.8;
+                if(fontSize < 5){
+                    fontSize = 5;
+                }
+                if(fontSize > 10){
+                    fontSize = 10;
+                }
 
                 if(distance < length && this.camera.scale.z > 3) {
                     return(
                         <button id={"lon-"+index} key={"lon-"+index} style={{ background:"#00000000", border:"none", position:"absolute", top:screenPos.y, left: screenPos.x, display:'flex', flexDirection:'row', transform:"translate(0px, -50%)"}}>
-                            <span style={{fontFamily:"Helvetica", fontWeight:"bold", color:COLORS.COLOR_ROOT, fontSize: 15}}>{value.affix}</span>
-                            <span style={{fontFamily:"Helvetica", fontWeight:"bold", color:COLORS.COLOR_ROOT, fontSize: 15}}>={value.meaning}</span>
+                            <span style={{fontFamily:"Helvetica", fontWeight:"bold", color:COLORS.COLOR_ROOT, fontSize: fontSize}}>{value.Label}</span>
+                            {/* <span style={{fontFamily:"Helvetica", fontWeight:"bold", color:COLORS.COLOR_ROOT, fontSize: 10}}>={value.meaning}</span> */}
                         </button>
                     )
                 }else{
-                    return(
-                        <div key={"lat-"+index}></div>
-                    );
+                    return null;
                 }
             })
             }
@@ -803,21 +1054,28 @@ class WordGlob extends Component {
                     <div className="gre">GRE</div>
                     <div className="smallgre">Your Progress</div>
                     <div className="progress">
-                        <div className="bar">
-                            <span style={{color: "#2062a7", fontSize: 15, fontFamily:"Helvetica"}}>28%</span>
+                        <div className="bar" style={{
+                            backgroundColor: "#dee0e5", 
+                            borderRadius: 10, 
+                            width: data != null ? ""+Math.floor(data.length/totalRowCount*100)+"%": "0%", 
+                            height: 17, display: "flex", 
+                            justifyContent: "center", 
+                            alignItems: "center"}}
+                        >
+                            <span style={{color: "#2062a7", fontSize: 15, fontFamily:"Helvetica", marginLeft:30}}>{data != null ? ""+Math.floor(data.length/totalRowCount*100)+"%": "0%"}</span>
                         </div>
                     </div>
                 </div>
             }
 
             <div>
-                <button type="button" onClick={()=>this.zoomIn()} style={{width: 61, height: 59, backgroundColor: "#f4f4f4", outline:"none", border:"none", borderRadius: 10, position: "absolute", right: 70, top: "50%", marginTop: -80, zIndex: 10000, cursor: this.state.hoverButton?'hand':'pointer'}}
+                <button type="button" onClick={()=>this.zoomIn()} style={{width: 61, height: 59, backgroundColor: "#f4f4f4", outline:"none", border:"none", borderRadius: 10, position: "absolute", right: 70, top: "50%", marginTop: -80, zIndex: 1003, cursor: this.state.hoverButton?'hand':'pointer'}}
                     onMouseEnter={this.onMouseEnterItem}
                     onMouseLeave={this.onMouseLeaveItem}
                 >
                     <img src={IMGS.IMG_ZOOMIN} style={{width: 37, height: 37}} alt="Null"/>
                 </button>
-                <button type="button" onClick={() => this.zoomOut()} style={{width: 61, height: 59, backgroundColor: "#f4f4f4", outline:"none", border:"none", borderRadius: 10, position: "absolute", right: 70, top: "50%", marginBottom: -10, zIndex: 10000, cursor: this.state.hoverButton?'hand':'pointer'}}
+                <button type="button" onClick={() => this.zoomOut()} style={{width: 61, height: 59, backgroundColor: "#f4f4f4", outline:"none", border:"none", borderRadius: 10, position: "absolute", right: 70, top: "50%", marginBottom: -10, zIndex: 1003, cursor: this.state.hoverButton?'hand':'pointer'}}
                     onMouseEnter={this.onMouseEnterItem}
                     onMouseLeave={this.onMouseLeaveItem}
                 >
@@ -839,7 +1097,7 @@ class WordGlob extends Component {
                 <ReviewDlg 
                     word={this.state.selectedWord} 
                     onClickKnown={this.onClickKnown}
-                    onOpenDetailDlg={()=>this.setState({showReviewDlg:false, showDetailDlg:true})}
+                    onOpenDetailDlg={this.onClickUnKnown}
                     onMouseEnterItem={this.onMouseEnterItem}
                     onMouseLeaveItem={this.onMouseLeaveItem}
                     hoverButton={this.state.hoverButton}
@@ -850,4 +1108,4 @@ class WordGlob extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(WordGlob);
+export default connect(mapStateToProps, mapDispatchToProps)(WordGlob); 

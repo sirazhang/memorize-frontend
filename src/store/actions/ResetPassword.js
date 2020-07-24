@@ -33,7 +33,7 @@ const ResetSuccess = () => {
 */
 
 const ResetFormValidate = (email, password) => {
-    console.log("Reset Form Validate", email, password)
+    //console.log("Reset Form Validate", email, password)
     if(email === "" || email === null || !validator.validate(email)) return -1;
     if(password === null || password === "") return -1;
     //if(password.length < 6) return-3;
@@ -74,11 +74,11 @@ const Reset = (email, password) => {
                 }
             })
             .catch(err => {
-                console.log(err.response.data)
+                //console.log(err.response.data)
                 dispatch(ResetFailed(-1))
             })
         }else{
-            console.log("Form Validation Failed")
+            //console.log("Form Validation Failed")
             dispatch(ResetFailed(failedCode))
         }
     }

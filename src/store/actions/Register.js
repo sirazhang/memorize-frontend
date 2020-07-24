@@ -34,7 +34,7 @@ const RegisterSuccess = () => {
 */
 
 const RegisterFormValidate = (username, email, password) => {
-    console.log("Register Form Validate", email, username, password)
+    //console.log("Register Form Validate", email, username, password)
     if(username === "" || username === null) return -2;
     if(email === "" || email === null || !validator.validate(email)) return -1;
     if(password === null || password === "") return -3;
@@ -79,7 +79,7 @@ const Register = (name, username, password, email) => {
                 }
             })
             .catch(err => {
-                console.log(err.response.data)
+                //console.log(err.response.data)
                 if(err.response.data === "Fail -> Email is already in use!")
                     dispatch(RegisterFailed(-1))
                 else if(err.response.data === "Fail -> Username is already taken!")

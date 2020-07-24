@@ -6,6 +6,11 @@ import send_email_reset from './reducers/SendEmailReset';
 import word_data from './reducers/WordData';
 import latitude from './reducers/Latitude';
 import longitude from './reducers/Longitude';
+import userstudy from './reducers/UserStudy';
+import review from './reducers/Review';
+import gremap from './reducers/GREMap';
+import brainstorm from './reducers/BrainStorm';
+import guide from './reducers/Guide';
 
 export default combineReducers({
     auth,
@@ -15,4 +20,9 @@ export default combineReducers({
     word_data,
     latitude,
     longitude,
+    userstudy,
+    review,
+    gremap,
+    brainstorm,
+    guide,
 })

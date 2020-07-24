@@ -23,6 +23,8 @@ export default (state=initialState, action) => {
             localStorage.removeItem("user-memorize-token")
             window.location.reload()
             return state;
+        case ActionTypes.GET_USER_CONTENT:
+            return{...state, id: action.id}
         default:
             return state;
     }

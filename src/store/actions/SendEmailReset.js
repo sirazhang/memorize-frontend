@@ -33,7 +33,7 @@ const SendEmailResetSuccess = () => {
 */
 
 const FormValidate = (email) => {
-    console.log("Send Email Form Validate", email)
+    //console.log("Send Email Form Validate", email)
     if(email === "" || email === null || !validator.validate(email)) return -1;
     return 0;
 }
@@ -70,11 +70,11 @@ const SendEmailReset = (email) => {
                 }
             })
             .catch(err => {
-                console.log(err.response.data)
+                //console.log(err.response.data)
                 dispatch(SendEmailResetFailed(-1))
             })
         }else{
-            console.log("Form Validation Failed")
+            //console.log("Form Validation Failed")
             dispatch(SendEmailResetFailed(failedCode))
         }
     }

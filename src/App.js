@@ -14,6 +14,8 @@ import {connect} from 'react-redux';
 import ResetPassword from './screens/ResetPassword';
 import BrainStormHome from './screens/BrainStormHome';
 import BrainStormStart from './screens/BrainStormStart';
+import Review from './screens/Review';
+import Profile from './screens/Profile';
 
 const mapStateToProps = (state) => {
     return {
@@ -51,6 +53,8 @@ class App extends React.Component{
                         <PrivateRoute authed={UTILS.checkJWTValidate()} exact path="/wordglob" component={WordGlobScreen} />
                         <PrivateRoute authed={UTILS.checkJWTValidate()} exact path="/brainstorm-home" component={BrainStormHome} />
                         <PrivateRoute authed={UTILS.checkJWTValidate()} exact path="/brainstorm-start" component={BrainStormStart} />
+                        <PrivateRoute authed={UTILS.checkJWTValidate()} exact path="/review" component={Review}/>
+                        <PrivateRoute authed={UTILS.checkJWTValidate()} exact path="/profile" component={Profile}/>
                     </Switch>
                 </Router>
             </div>

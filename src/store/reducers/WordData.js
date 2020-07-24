@@ -16,7 +16,7 @@ export default (state=initialState, action) => {
         case ActionTypes.WORDDATA_GET_START:
             return {wordData: null, getState: 0};
         case ActionTypes.WORDDATA_GET_SUCCESS:
-            console.log(action.worddata, action.worddata_rnd, action.worddata_rnd_lat, action.worddata_rnd_lon)
+            //console.log(action.worddata, action.worddata_rnd, action.worddata_rnd_lat, action.worddata_rnd_lon)
             return {wordData: action.worddata, wordDataRnd: action.worddata_rnd, wordDataRndLat: action.worddata_rnd_lat, wordDataRndLon: action.worddata_rnd_lon, getState: 1}
         case ActionTypes.WORDDATA_GET_FAILED:
             return{wordData: null, getState: action.getState}

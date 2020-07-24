@@ -145,7 +145,7 @@
     -moz-border-radius: 37px;
     border-radius: 37px;
     border: 3px solid #ffffff;
-    display: flex;
+    display: inline-block;
     color: #fff;
     justify-content: center;
     align-items: center;
@@ -158,8 +158,12 @@
     backface-visibility: hidden;
 }
 
+.card-container .card span::before {
+    content: "\A";
+    white-space: pre;
+}
 .card-container .card .back {
-    border: none;
+    /* border: none; */
     background: #e2e2e288;
     color: #FFF;
     -webkit-transform: rotateX(180deg);
@@ -188,3 +192,8 @@
     /* box-shadow: 0 20px 20px rgba(255,255,255,.2); */
 }
 
+.pagination-container  button{
+    font-size: 21px;
+    font-family: Helvetica;
+    margin: 0px 5px;
+}
